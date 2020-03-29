@@ -1,0 +1,13 @@
+html {
+  box-sizing: border-box;
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  line-height: $font-size-lg;
+  color: $color-darker;
+  background-color: $color-base;
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
