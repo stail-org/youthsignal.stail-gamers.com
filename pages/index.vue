@@ -11,8 +11,8 @@ import sectionSample from '~/components/sections/Samples.vue'
 
 @Component({
   components: {
-    sectionSample
-  }
+    sectionSample,
+  },
 })
 export default class Index extends Vue {}
 </script>

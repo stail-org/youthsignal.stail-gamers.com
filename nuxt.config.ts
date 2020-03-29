@@ -10,10 +10,10 @@ const config: Configuration = {
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || ''
-      }
+        content: process.env.npm_package_description || '',
+      },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
   loading: { color: '#fff' },
   css: ['~/assets/scss/styles/main.scss'],
@@ -21,19 +21,19 @@ const config: Configuration = {
   buildModules: [
     '@nuxtjs/eslint-module',
     '@nuxt/typescript-build',
-    '@nuxtjs/stylelint-module'
+    '@nuxtjs/stylelint-module',
   ],
   modules: ['@nuxtjs/pwa', '@nuxtjs/style-resources', 'nuxt-fontawesome'],
   styleResources: {
     scss: [
       '~/assets/scss/variables/main.scss',
-      '~/assets/scss/mixins/main.scss'
-    ]
+      '~/assets/scss/mixins/main.scss',
+    ],
   },
   fontawesome: {
-    component: 'fa'
+    component: 'fa',
   },
-  build: {}
+  build: {},
 }
 
 export default config

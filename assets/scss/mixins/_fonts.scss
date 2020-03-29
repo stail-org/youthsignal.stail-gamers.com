@@ -1,10 +1,10 @@
-﻿// フォント追加
+// フォント追加
 @mixin font-face($name, $path, $weight: null, $style: null, $exts: otf ttf) {
   $src: null;
 
   $formats: (
     otf: 'opentype',
-    ttf: 'truetype'
+    ttf: 'truetype',
   );
 
   @each $ext in $exts {

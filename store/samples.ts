@@ -6,12 +6,12 @@ export default class Samples extends VuexModule {
   list: Array<Sample> = [
     {
       id: 1,
-      text: 'hello'
+      text: 'hello',
     },
     {
       id: 2,
-      text: 'bye'
-    }
+      text: 'bye',
+    },
   ]
 
   @Mutation

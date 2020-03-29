@@ -22,8 +22,8 @@ import partSample from '~/components/parts/Sample.vue'
 
 @Component({
   components: {
-    partSample
-  }
+    partSample,
+  },
 })
 export default class SectionSamples extends Vue {
   get samples(): Array<Sample> {
