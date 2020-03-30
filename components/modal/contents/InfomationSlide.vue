@@ -1,11 +1,11 @@
 <template>
-  <swiper class="swiper-container-infomation" :options="swiperOption">
+  <swiper id="swiperInfomation" class="InfomationSlide" :options="swiperOption">
     <swiper-slide
       v-for="info in $store.getters['infomation/modalList']"
       :key="info.id"
     >
       <img
-        class="infomation-slide"
+        class="InfomationSlide__Content"
         :src="
           require(`~/assets/images/overview-area/infomations/${info.createdAt.replace(
             /-/g,
@@ -16,8 +16,16 @@
         @click.stop
       />
     </swiper-slide>
-    <div slot="button-prev" class="swiper-button-prev" @click.stop></div>
-    <div slot="button-next" class="swiper-button-next" @click.stop></div>
+    <div
+      slot="button-prev"
+      class="swiper-button swiper-button-prev"
+      @click.stop
+    ></div>
+    <div
+      slot="button-next"
+      class="swiper-button swiper-button-next"
+      @click.stop
+    ></div>
     <div slot="pagination" class="swiper-pagination" @click.stop></div>
   </swiper>
 </template>
@@ -52,23 +60,23 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.swiper-container-infomation {
+.InfomationSlide {
   width: 100%;
   height: 95vh;
   padding-bottom: 40px;
   text-align: center;
-  .infomation-slide {
+  &__Content {
     width: auto;
     height: 100%;
   }
 }
 @media (max-width: 950px) {
-  .swiper-container-infomation {
+  .InfomationSlide {
     height: 90vw;
   }
 }
 @media (max-width: 768px) {
-  .swiper-container-infomation {
+  .InfomationSlide {
     height: 96vw;
   }
 }

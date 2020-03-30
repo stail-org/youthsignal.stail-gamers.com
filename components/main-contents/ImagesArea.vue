@@ -1,26 +1,29 @@
 <template>
-  <section id="imagesArea" class="images-area">
-    <div class="title">
+  <section id="imagesArea" class="ImagesArea area-section">
+    <div class="ImagesArea__Title">
       <img
-        src="~assets/images/images-area/images-title.png"
+        class="ImagesArea__Title__Img"
+        src="~/assets/images/images-area/images-title.png"
         alt="YouthSignal Images"
       />
     </div>
-    <div class="container">
-      <div class="image-large">
+    <div class="ImagesArea__Container compact-container">
+      <div class="ImagesArea__Container--Large">
         <img
+          class="ImagesArea__Container__Img width-100"
           :src="require(`~/assets/images/images-area/${largeImage.fileName}`)"
           :alt="largeImage.title"
           @click="$store.commit('modal/show', { mode: 'image', showTarget: 1 })"
         />
       </div>
-      <div class="image-small">
+      <div class="ImagesArea__Container--Small">
         <div
           v-for="(img, index) in smallImages"
           :key="index"
-          class="image-small-wrapper"
+          class="ImagesArea__Container--Small__Wrapper"
         >
           <img
+            class="ImagesArea__Container__Img width-100"
             :src="require(`~/assets/images/images-area/${img.fileName}`)"
             :alt="img.title"
             @click="
@@ -48,33 +51,42 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.images-area {
-  .title {
+.ImagesArea {
+  &__Title {
     text-align: center;
   }
-  .container {
+  &__Container {
     display: flex;
-    flex-flow: row nowrap;
+    flex-wrap: nowrap;
     align-items: flex-start;
     justify-content: flex-start;
     width: 100%;
     padding: 0;
     margin-top: 3rem;
-    img {
-      width: 100%;
-      height: auto;
-      cursor: -webkit-zoom-in;
-    }
-    .image-large {
+    &--Large {
       width: 50%;
     }
-    .image-small {
+    &--Small {
       display: flex;
       flex-flow: row wrap;
       width: 50%;
-      .image-small-wrapper {
+      &__Wrapper {
         width: 50%;
         height: 50%;
+      }
+    }
+    &__Img {
+      cursor: zoom-in;
+    }
+  }
+}
+
+// タイトル画像サイズ調整
+@media (max-width: 930px) {
+  .ImagesArea {
+    &__Title {
+      &__Img {
+        width: 90%;
       }
     }
   }
@@ -82,32 +94,14 @@ export default {
 
 // スマホ＆タブレット
 @media (max-width: 480px) {
-  .images-area {
-    .container {
-      flex-flow: row wrap;
-      width: 100%;
-      .image-large {
+  .ImagesArea {
+    &__Container {
+      flex-wrap: wrap;
+      &--Large {
         width: 100%;
       }
-      .image-small {
-        display: flex;
-        flex-flow: row wrap;
+      &--Small {
         width: 100%;
-        .image-small-wrapper {
-          width: 50%;
-          height: 50%;
-        }
-      }
-    }
-  }
-}
-
-// タイトル画像サイズ調整
-@media (max-width: 930px) {
-  .images-area {
-    .title {
-      img {
-        width: 90%;
       }
     }
   }

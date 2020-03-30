@@ -1,12 +1,23 @@
 <template>
-  <div class="foreground-wrapper">
-    <div class="light-wrapper">
-      <div id="lightFlicker" class="light-flicker"></div>
-      <div class="light-ray"></div>
+  <div class="Foreground">
+    <div class="Foreground__LightWrapper">
+      <div
+        id="lightFlicker"
+        class="Foreground__LightWrapper__Item Foreground__LightWrapper__Item--Flicker"
+      ></div>
+      <div
+        class="Foreground__LightWrapper__Item Foreground__LightWrapper__Item--Ray"
+      ></div>
     </div>
-    <div class="particles-wrapper">
-      <div id="particlesBlue" class="particles-blue"></div>
-      <div id="particlesYellow" class="particles-yellow"></div>
+    <div class="Foreground__ParticlesWrapper">
+      <div
+        id="particlesBlue"
+        class="Foreground__ParticlesWrapper__Item Foreground__ParticlesWrapper__Item--Blue"
+      ></div>
+      <div
+        id="particlesYellow"
+        class="Foreground__ParticlesWrapper__Item Foreground__ParticlesWrapper__Item--Yellow"
+      ></div>
     </div>
   </div>
 </template>
@@ -49,47 +60,47 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.foreground-wrapper {
+.Foreground {
   position: fixed;
   top: 0;
-  z-index: 1000;
+  z-index: $--z-index-deeper;
   width: 100%;
   height: 100%;
   pointer-events: none;
-  .light-wrapper {
+  &__LightWrapper {
     position: absolute;
     width: 1920px;
     height: 1080px;
     opacity: 0.7;
-    div {
+    &__Item {
       position: absolute;
       width: 100%;
       height: 100%;
-    }
-    .light-flicker {
-      background: url('../assets/images/light-flicker.png') no-repeat;
-      background-size: 1920px 1080px;
-    }
-    .light-ray {
-      background: url('../assets/images/light-ray.png') no-repeat;
-      background-size: 1920px 34560px;
-      animation: splite 2.6s steps(31) infinite alternate-reverse;
+      &--Flicker {
+        background: url('~assets/images/light-flicker.png') no-repeat;
+        background-size: 1920px 1080px;
+      }
+      &--Ray {
+        background: url('~assets/images/light-ray.png') no-repeat;
+        background-size: 1920px 34560px;
+        animation: splite 2.6s steps(31) infinite alternate-reverse;
+      }
     }
   }
-  .particles-wrapper {
+  &__ParticlesWrapper {
     position: absolute;
     width: 100%;
     height: 100%;
-    div {
+    &__Item {
       position: absolute;
       width: 100%;
       height: 100%;
-    }
-    .particles-blue {
-      animation: blink 2.5s linear infinite alternate;
-    }
-    .particles-yellow {
-      animation: blink 3s linear infinite alternate;
+      &--Blue {
+        animation: blink 2.5s linear infinite alternate;
+      }
+      &--Yellow {
+        animation: blink 3s linear infinite alternate;
+      }
     }
   }
 }
@@ -110,21 +121,21 @@ export default {
 
 // PC縮小版（大）
 @media (max-width: 1700px) {
-  .foreground-wrapper {
-    .light-wrapper {
+  .Foreground {
+    &__LightWrapper {
       width: 1600px;
       height: 900px;
-      div {
+      &__Item {
         position: absolute;
         width: 100%;
         height: 100%;
-      }
-      .light-flicker {
-        background-size: 1600px 900px;
-      }
-      .light-ray {
-        background-size: 1600px 28800px;
-        animation: splite-1600 2.6s steps(31) infinite alternate-reverse;
+        &--Flicker {
+          background-size: 1600px 900px;
+        }
+        &--Ray {
+          background-size: 1600px 28800px;
+          animation: splite-1600 2.6s steps(31) infinite alternate-reverse;
+        }
       }
     }
   }
@@ -138,21 +149,21 @@ export default {
 
 // タブレット～PC縮小版
 @media (max-width: 1300px) {
-  .foreground-wrapper {
-    .light-wrapper {
+  .Foreground {
+    &__LightWrapper {
       width: 1200px;
       height: 675px;
-      div {
+      &__Item {
         position: absolute;
         width: 100%;
         height: 100%;
-      }
-      .light-flicker {
-        background-size: 1200px 675px;
-      }
-      .light-ray {
-        background-size: 1200px 21600px;
-        animation: splite-1200 2.6s steps(31) infinite alternate-reverse;
+        &--Flicker {
+          background-size: 1200px 675px;
+        }
+        &--Ray {
+          background-size: 1200px 21600px;
+          animation: splite-1200 2.6s steps(31) infinite alternate-reverse;
+        }
       }
     }
   }
@@ -166,21 +177,21 @@ export default {
 
 // タブレット～PC縮小版
 @media (max-width: 980px) {
-  .foreground-wrapper {
-    .light-wrapper {
+  .Foreground {
+    &__LightWrapper {
       width: 960px;
       height: 540px;
-      div {
+      &__Item {
         position: absolute;
         width: 100%;
         height: 100%;
-      }
-      .light-flicker {
-        background-size: 960px 540px;
-      }
-      .light-ray {
-        background-size: 960px 17280px;
-        animation: splite-960 2.6s steps(31) infinite alternate-reverse;
+        &--Flicker {
+          background-size: 960px 540px;
+        }
+        &--Ray {
+          background-size: 960px 17280px;
+          animation: splite-960 2.6s steps(31) infinite alternate-reverse;
+        }
       }
     }
   }
@@ -194,13 +205,7 @@ export default {
 
 // タブレット～PC縮小版
 @media (max-width: 768px) {
-  .foreground-wrapper {
-    display: none;
-  }
-}
-
-@media (max-width: 480px) {
-  .foreground-wrapper {
+  .Foreground {
     display: none;
   }
 }

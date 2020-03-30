@@ -1,55 +1,55 @@
 body {
-  margin: 0;
-  overflow-x: hidden;
+  color: $--color-white;
+  background: url('~assets/images/background.png') no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+
+  &.modal-showing {
+    padding-right: 17px;
+    overflow: hidden;
+  }
+}
+main {
+  max-width: 1920px;
+  margin: auto;
+}
+.area-section {
+  width: 100%;
+  margin-top: 10rem;
+}
+.compact-container {
+  width: 1050px;
+  max-width: 1920px;
+  padding: 0;
+  margin: auto;
 }
 
-article,
-aside,
-footer,
-header,
-nav,
-section {
-  display: block;
-  padding: $space-base;
+@media (max-width: 1200px) {
+  body {
+    font-family: $font-family-base;
+  }
+  .compact-container {
+    width: 90%;
+  }
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: $space-lg 0;
-  font-weight: $font-weight-light;
+@media (max-width: 768px) {
+  html {
+    font-size: 15px;
+  }
+  body {
+    &.modal-showing {
+      padding-right: 0;
+      overflow: hidden;
+    }
+  }
+  .area-section {
+    margin-top: 10rem;
+  }
 }
 
-h4,
-h5,
-h6 {
-  margin: $space-base 0;
-  font-weight: $font-weight-regular;
-}
-
-h1 {
-  font-size: $h1-font-size;
-}
-
-h2 {
-  font-size: $h2-font-size;
-}
-
-h3 {
-  font-size: $h3-font-size;
-}
-
-h4 {
-  font-size: $h4-font-size;
-}
-
-h5 {
-  font-size: $h5-font-size;
-}
-
-h6 {
-  font-size: $h6-font-size;
+@media (max-width: 480px) {
+  .area-section {
+    margin-top: 5rem;
+  }
 }

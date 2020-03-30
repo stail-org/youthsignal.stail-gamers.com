@@ -13,7 +13,9 @@ export const mutations = {
   show(state, { mode, showTarget }) {
     // 対象のスライドを表示状態にする
     state.mode = mode
-    const swiper = document.querySelector(`.swiper-container-${mode}`).swiper
+    const swiper = document.getElementById(
+      `swiper${mode[0].toUpperCase()}${mode.slice(1)}`
+    ).swiper
     swiper.slideTo(showTarget || 1, 0, false)
     // 表示準備が整ったら、モーダルを可視にする
     state.visible = true
