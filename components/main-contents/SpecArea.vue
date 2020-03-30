@@ -1,16 +1,21 @@
 <template>
-  <section id="specArea" class="spec-area">
-    <div class="container">
-      <div class="title">
+  <section id="specArea" class="SpecArea area-section">
+    <div class="compact-container">
+      <div class="SpecArea__Title">
         <img
-          src="~assets/images/spec-area/spec-title.png"
+          class="width-100 responsive"
+          src="~/assets/images/spec-area/spec-title.png"
           alt="YouthSignal Spec"
         />
       </div>
-      <div class="values-container">
-        <div v-for="spec in specs" :key="spec.id" class="values">
-          <p class="key">{{ spec.key }}</p>
-          <p class="value">
+      <div class="SpecArea__Contents">
+        <div
+          v-for="spec in specs"
+          :key="spec.id"
+          class="SpecArea__Contents__Item"
+        >
+          <p class="SpecArea__Contents__Item__Key">{{ spec.key }}</p>
+          <p class="SpecArea__Contents__Item__Value">
             <template v-if="Array.isArray(spec.value)">
               <span>{{ spec.value[0][0] }}</span>
               <span style="float: right;">{{ spec.value[0][1] }}</span>
@@ -22,7 +27,10 @@
               <span style="float: right;">{{ spec.value }}</span>
             </template>
           </p>
-          <p v-if="[5, 6].includes(spec.id)" class="spacer" />
+          <p
+            v-if="[5, 6].includes(spec.id)"
+            class="SpecArea__Contents__Item__Spacer"
+          />
         </div>
       </div>
     </div>
@@ -43,22 +51,16 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.spec-area {
-  .container {
-    img {
-      width: 100%;
-      height: auto;
-    }
-  }
-  .values-container {
+.SpecArea {
+  &__Contents {
     display: flex;
     flex-flow: row wrap;
     align-items: flex-start;
     justify-content: space-between;
     margin-top: 2rem;
-    .values {
+    &__Item {
       width: 46%;
-      .key {
+      &__Key {
         padding-bottom: 0.3rem;
         margin-bottom: 0.1rem;
         font-family: 'MS P Gothic', sans-serif;
@@ -72,10 +74,10 @@ export default {
         background-position: bottom;
         background-size: 7px 2px;
       }
-      .value {
+      &__Value {
         font-size: 1.4rem;
       }
-      .spacer {
+      &__Spacer {
         margin-bottom: 6rem;
       }
     }
@@ -84,13 +86,13 @@ export default {
 
 // スマホ＆タブレット
 @media (max-width: 768px) {
-  .spec-area {
-    .values-container {
-      .values {
-        .value {
+  .SpecArea {
+    &__Contents {
+      &__Item {
+        &__Value {
           font-size: 1rem;
         }
-        .spacer {
+        &__Spacer {
           margin-bottom: 4rem;
         }
       }

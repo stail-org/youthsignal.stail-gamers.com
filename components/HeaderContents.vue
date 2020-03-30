@@ -1,41 +1,38 @@
 <template>
-  <header>
-    <h1>
+  <header class="Header">
+    <h1 class="Header__Title">
       <img
-        class="youthsignal-header"
+        class="Heater__Title__Image"
         src="~/assets/images/youthsignal-header.png"
         alt="YouthSignal"
       />
     </h1>
-    <nav>
-      <div class="nav-wrapper">
-        <table>
-          <tr>
-            <td v-for="nav in navigations" :key="nav.id">
-              <a
-                v-if="nav.link"
-                :href="nav.link"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {{ nav.text }}
-              </a>
-              <nuxt-link v-else v-scroll-to="scrollOpt(nav.id)" to>
-                {{ nav.text }}
-              </nuxt-link>
-            </td>
-          </tr>
-        </table>
+    <nav class="Header__Nav">
+      <div class="Header__Nav__Wrapper">
+        <span
+          v-for="nav in navigations"
+          :key="nav.id"
+          class="Header__Nav__Item"
+        >
+          <nuxt-link
+            v-scroll-to="scrollOpt(nav.id)"
+            class="white without-underline"
+            to
+          >
+            {{ nav.text }}
+          </nuxt-link>
+        </span>
       </div>
     </nav>
-    <div class="nav-float-trial">
+    <div class="Header__Float">
       <a
+        class="white"
         href="https://youthsignal-trial.stail-gamers.com/"
         target="_blank"
         rel="noopener noreferrer"
       >
         {{ `体験版はこちら！ ` }}
-        <fa class="nav-float-trial-fa" :icon="faExternalLinkAlt" />
+        <fa class="fa" :icon="faExternalLinkAlt" />
       </a>
     </div>
   </header>
@@ -74,11 +71,6 @@ export default {
           id: 'staffArea',
           text: 'STAFF&SPEC',
         },
-        {
-          id: 'Trial',
-          text: 'TRIAL',
-          link: 'https://youthsignal-trial.stail-gamers.com/',
-        },
       ],
     }
   },
@@ -111,21 +103,21 @@ export default {
 </script>
 
 <style scoped lang="scss">
-header {
+.Header {
   position: sticky;
   top: 0;
+  z-index: $--z-index-deep;
   width: 100%;
   height: 60px;
-  font-family: 'MS P Gothic', sans-serif;
   font-size: 0.8em;
   background: black;
-  h1 {
+  &__Title {
     position: absolute;
     right: 0;
     margin: 0;
     text-align: right;
   }
-  .nav-float-trial {
+  &__Float {
     position: absolute;
     top: 80px;
     right: 20px;
@@ -134,64 +126,42 @@ header {
     overflow: hidden;
     background: rgba(#2f96b4, 0.7);
     border-radius: 8px;
-    a {
-      color: white;
-    }
-    &-fa {
+    .fa {
       animation-name: bounce;
       animation-duration: 3s;
       animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
       animation-iteration-count: infinite;
     }
   }
-  nav {
+  &__Nav {
     line-height: 60px;
-    .nav-wrapper {
-      table {
-        margin: auto;
-        table-layout: auto;
-        td {
-          padding: 0 10px;
-          a {
-            color: white;
-            text-decoration: none;
-          }
-          a:hover {
-            color: #00f9ff !important;
-          }
-          a:visited {
-            color: white;
-          }
-        }
-      }
+    &__Wrapper {
+      display: flex;
+      justify-content: center;
+    }
+    &__Item {
+      padding: 0 10px;
     }
   }
 }
 
 // タブレット～PC縮小版
 @media (max-width: 1200px) {
-  .youthsignal-header {
-    width: 65%;
-    height: auto;
+  .Header {
+    &__Title {
+      display: none;
+    }
   }
 }
 
 // スマホ～タブレット
 @media (max-width: 980px) {
-  header {
+  .Header {
     height: 40px;
-    h1 {
-      .youthsignal-header {
-        display: none;
-      }
-    }
-    nav {
+    &__Nav {
       line-height: 40px;
     }
-    .nav-stail-top {
-      line-height: 40px;
-    }
-    .nav-float-trial {
+    &__Float {
       top: 52px;
       right: 0;
     }
@@ -200,35 +170,16 @@ header {
 
 // スマホ
 @media (max-width: 768px) {
-  .nav-wrapper {
-    overflow-x: auto;
-    overflow-y: hidden;
-    &::-webkit-scrollbar {
-      display: none;
+  .Header {
+    &__Nav {
+      &__Wrapper {
+        overflow-x: auto;
+        overflow-y: hidden;
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
     }
-  }
-  .nav-stail-top {
-    display: none;
-  }
-}
-
-@keyframes bounce {
-  0%,
-  50% {
-    transform: translateY(-2px);
-  }
-  60% {
-    transform: translateY(-8px);
-  }
-  68% {
-    transform: translateY(-2px);
-  }
-  76% {
-    transform: translateY(-8px);
-  }
-  86%,
-  100% {
-    transform: translateY(-2px);
   }
 }
 </style>

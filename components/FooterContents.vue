@@ -1,5 +1,5 @@
 <template>
-  <footer>
+  <footer class="Footer">
     © 2019 Stail
   </footer>
 </template>
@@ -11,7 +11,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-footer {
+.Footer {
   width: 100%;
   padding: 1rem 0;
   margin-top: 2rem;

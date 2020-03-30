@@ -2,3 +2,46 @@ ul {
   padding: 0;
   list-style: none;
 }
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  &.red {
+    color: $--color-red;
+    &:hover {
+      color: $--color-red !important;
+    }
+    &:visited {
+      color: $--color-purple;
+    }
+  }
+  &.white {
+    color: $--color-white;
+    &:hover {
+      color: $--color-cyan !important;
+    }
+    &:visited {
+      color: $--color-white;
+    }
+  }
+  &.always-underline {
+    text-decoration: underline !important;
+  }
+  &.without-underline {
+    &:hover {
+      text-decoration: none !important;
+    }
+  }
+}
+
+img {
+  &.width-100 {
+    width: 100%;
+    height: auto;
+    .responsive {
+      @media (max-width: 768px) {
+        width: 90%;
+      }
+    }
+  }
+}

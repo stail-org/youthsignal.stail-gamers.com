@@ -1,20 +1,22 @@
 <template>
-  <section id="storyArea">
-    <div class="story-container">
-      <h2 class="title">
+  <section id="storyArea" class="StoryArea aria-section">
+    <div class="compact-container">
+      <h2 class="StoryArea__Title">
         <img
           v-if="width > 768"
-          src="~assets/images/story-area/story-title.png"
+          class="StoryArea__Title__Img"
+          src="~/assets/images/story-area/story-title.png"
           alt="YouthSignal Thema and Story"
         />
         <img
           v-else
-          src="~assets/images/story-area/story-title-sp.png"
+          class="StoryArea__Title__Img"
+          src="~/assets/images/story-area/story-title-sp.png"
           alt="YouthSignal Thema and Story"
         />
       </h2>
-      <div class="contents">
-        <h3 class="overview">
+      <div class="StoryArea__Contents">
+        <h3 class="StoryArea__Contents__Title">
           SERIOUS x REALITY x LOVE
         </h3>
         <p>本作のテーマは『シリアス』『リアリティ』『純愛』。</p>
@@ -68,16 +70,16 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.story-container {
+.StoryArea {
   text-align: center;
-  .title {
+  &__Title {
     margin-top: 12rem;
     margin-bottom: 4rem;
   }
-  .contents {
+  &__Contents {
     padding: 0 2rem;
     background: url('~assets/images/story-area/story-background.png') no-repeat;
-    .overview {
+    &__Title {
       margin-bottom: 4rem;
       font-size: 3.5rem;
     }
@@ -91,14 +93,16 @@ export default {
 
 // スマホ＆タブレット
 @media (max-width: 768px) {
-  .story-container {
-    .title {
-      img {
+  .StoryArea {
+    &__Title {
+      font-size: 2.5rem;
+      &__Img {
         width: 90%;
+        height: auto;
       }
     }
-    .contents {
-      .overview {
+    &__Contents {
+      &__Title {
         font-size: 2.5rem;
       }
       p {

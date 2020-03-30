@@ -1,64 +1,71 @@
 <template>
-  <section id="introductionArea" class="introduction-area">
-    <div class="container">
-      <h2 class="title">
+  <section id="introductionArea" class="IntroductionArea area-section">
+    <div class="IntroductionArea__Container compact-container">
+      <h2 class="IntroductionArea__Title">
         <img
           v-if="width > 768"
-          src="~assets/images/introduction-area/introduction-title.png"
-          alt="YouthSignal Movies"
+          class="IntroductionArea__Title__Img"
+          src="~/assets/images/introduction-area/introduction-title.png"
+          alt="YouthSignal Introduction"
         />
         <img
           v-else
-          src="~assets/images/introduction-area/introduction-title-sp.png"
-          alt="YouthSignal Movies"
+          class="IntroductionArea__Title__Img"
+          src="~/assets/images/introduction-area/introduction-title-sp.png"
+          alt="YouthSignal Introduction"
         />
       </h2>
-      <div class="text">
-        <p class="introduction-overview">
+      <div class="IntroductionArea__Synopsis">
+        <p class="IntroductionArea__Synopsis__Top">
           <img
-            src="~assets/images/introduction-area/introduction-text.png"
+            class="IntroductionArea__Synopsis__Top__Img width-100"
+            src="~/assets/images/introduction-area/introduction-text.png"
             alt="YouthSignal 概要"
           />
-          <span>
+          <span class="IntroductionArea__Synopsis__Top__Text">
             主人公達が通う<br />私立<span data-ruby="ハシノミヤ">梁ノ宮</span
-            >高校には、<br />問題が山積みである</span
-          >
+            >高校には、<br />問題が山積みである
+          </span>
         </p>
-        <p>
+        <p class="IntroductionArea__Synopsis__Text">
           耐えない落書き、イタズラ、陰湿ないじめ、影の暴力、匙を投げた教員……。<br />そして風紀の乱れを律するべく動く本校生徒会、所属する生徒達。
         </p>
-        <p>
+        <p class="IntroductionArea__Synopsis__Text">
           同時に、本来なら部活や勉強、もっと普通の学生生活を送っていたであろうはずの生徒会員生徒は、<br />各々が思春期独特の言い様のない不安感や焦燥感、日常を費やす欠落感に苛まれながら過ごしていた。
         </p>
-        <p>
+        <p class="IntroductionArea__Synopsis__Text">
           バラバラの目的と背中合わせの手探り。<br />つぎはぎの様に集まった彼らが、それでも素直な頃を思い出しながら不器用なりに友愛を深めていく。
         </p>
-        <p>果たして、乱れた学校の風紀は？ 費やされた彼らの青春の行方は？</p>
-        <p>
+        <p class="IntroductionArea__Synopsis__Text">
+          果たして、乱れた学校の風紀は？ 費やされた彼らの青春の行方は？
+        </p>
+        <p class="IntroductionArea__Synopsis__Text">
           こうして彼らの、『本当になりたい自分』を取り戻す追憶の青春が、今、始まる――
         </p>
       </div>
     </div>
-    <div class="image-container">
-      <div class="image-contents">
+    <div class="IntroductionArea__Promotion">
+      <div class="IntroductionArea__Promotion__Item">
         <p>
           <img
-            src="~assets/images/introduction-area/youthsignal-introduction01.png"
+            class="width-100"
+            src="~/assets/images/introduction-area/youthsignal-introduction01.png"
             alt="YouthSignal紹介1"
           />
         </p>
-        <p class="description1">
+        <p class="IntroductionArea__Promotion__Item__Description--Right">
           梁ノ宮高校では今もなお不可解な事件が続いている。事件解決に向けて行動するのは教員、そして生徒会。<br />いったい誰が事件を起こしているのか。そしてその目的とは……？
         </p>
       </div>
-      <div class="image-contents">
+      <div class="IntroductionArea__Promotion__Item">
         <p>
           <img
-            src="~assets/images/introduction-area/youthsignal-introduction02.png"
+            class="width-100"
+            src="~/assets/images/introduction-area/youthsignal-introduction02.png"
             alt="YouthSignal紹介2"
           />
         </p>
-        <p class="description2">
+        <p class="IntroductionArea__Promotion__Item__Description--Left">
           主人公、宮道嘉人が進む道は一つだけではない。<br />ヒロイン達の心や行動。その果てに嘉人が求めたものとは――――――
         </p>
       </div>
@@ -91,66 +98,68 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.image-container {
-  width: 100%;
-  margin-top: 10%;
-  font-size: 1.3rem;
-  .image-contents {
-    margin-bottom: 5%;
-    img {
-      width: 100%;
-      height: auto;
-    }
-    .description1 {
-      padding-right: 10%;
-      padding-left: 36%;
-    }
-    .description2 {
-      padding-left: 15%;
-    }
+.IntroductionArea {
+  &__Container {
+    width: 55%;
+    margin: 0 auto;
   }
-}
-.container {
-  width: 55%;
-  margin: 0 auto;
-  .title {
+  &__Title {
     margin-top: 15%;
   }
-  .text {
+  &__Synopsis {
     margin-top: 3rem;
-    .introduction-overview {
+    &__Top {
       margin-top: 3rem;
       margin-bottom: 3rem;
-      img {
-        width: 100%;
+      &__Img {
         max-width: 846px;
-        height: auto;
       }
-      span {
+      &__Text {
         display: none;
       }
     }
-    p {
+    &__Text {
       margin-bottom: 2rem;
       font-size: 1.3rem;
+    }
+  }
+  &__Promotion {
+    width: 100%;
+    margin-top: 10%;
+    font-size: 1.3rem;
+    &__Item {
+      margin-bottom: 5%;
+      &__Description {
+        &--Right {
+          padding-right: 10%;
+          padding-left: 36%;
+        }
+        &--Left {
+          padding-left: 15%;
+        }
+      }
     }
   }
 }
 
 // PC縮小版
 @media (max-width: 1200px) {
-  .container {
-    width: 80%;
-  }
-  .image-container {
-    .image-contents {
-      .description1 {
-        padding-right: 10%;
-        padding-left: 10%;
-      }
-      .description2 {
-        padding-right: 10%;
-        padding-left: 10%;
+  .IntroductionArea {
+    &__Container {
+      width: 80%;
+    }
+    &__Promotion {
+      &__Item {
+        &__Description {
+          &--Right {
+            padding-right: 10%;
+            padding-left: 10%;
+          }
+          &--Left {
+            padding-right: 10%;
+            padding-left: 10%;
+          }
+        }
       }
     }
   }
@@ -158,43 +167,60 @@ export default {
 
 // タブレット
 @media (max-width: 768px) {
-  .container {
-    width: 90%;
-    .title {
-      img {
+  .IntroductionArea {
+    &__Container {
+      width: 90%;
+    }
+    &__Title {
+      &__Img {
         width: 100%;
         height: auto;
       }
     }
-    .text {
-      p {
+    &__Synopsis {
+      &__Text {
         font-size: 1.2rem;
       }
     }
-  }
-  .image-container {
-    font-size: 1.2rem;
-    .image-contents {
-      .description1 {
-        padding-right: 5%;
-        padding-left: 5%;
-      }
-      .description2 {
-        padding-right: 5%;
-        padding-left: 5%;
+    &__Promotion {
+      font-size: 1.2rem;
+      &__Item {
+        &__Description {
+          &--Right {
+            padding-right: 5%;
+            padding-left: 5%;
+          }
+          &--Left {
+            padding-right: 5%;
+            padding-left: 5%;
+          }
+        }
       }
     }
   }
 }
+
+// エリアタイトルの画像サイズ
+@media (max-width: 588px) {
+  .IntroductionArea {
+    &__Title {
+      img {
+        width: 90%;
+      }
+    }
+  }
+}
+
 // スマホ
 @media (max-width: 480px) {
-  .container {
-    .text {
-      .introduction-overview {
-        img {
+  .IntroductionArea {
+    &__Synopsis {
+      &__Top {
+        font-size: 1rem;
+        &__Img {
           display: none;
         }
-        span {
+        &__Text {
           display: inline;
           font-size: 2.2rem;
           line-height: 3rem;
@@ -212,18 +238,15 @@ export default {
           }
         }
       }
-      p {
-        font-size: 1rem;
-      }
     }
-  }
-  .image-container {
-    font-size: 1rem;
-    .image-contents {
-      p:first-of-type {
-        overflow-x: scroll;
-        img {
-          width: 200%;
+    &__Promotion {
+      font-size: 1rem;
+      &__Item {
+        p:first-of-type {
+          overflow-x: scroll;
+          img {
+            width: 200%;
+          }
         }
       }
     }
@@ -240,16 +263,5 @@ export default {
 ::-webkit-scrollbar-thumb {
   background-color: rgba(255, 255, 255, 0.3);
   border-radius: 10px;
-}
-
-// エリアタイトルの画像サイズ
-@media (max-width: 588px) {
-  .container {
-    .title {
-      img {
-        width: 90%;
-      }
-    }
-  }
 }
 </style>

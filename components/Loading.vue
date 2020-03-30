@@ -1,8 +1,9 @@
 <template>
   <transition name="fade">
-    <div v-if="isLoading" class="loading">
+    <div v-if="isLoading" class="Loading">
       <img
-        src="~assets/images/youthsignal-header.png"
+        class="Loading__Image"
+        src="~/assets/images/youthsignal-header.png"
         alt="youthsignal loading ..."
       />
     </div>
@@ -41,38 +42,20 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.loading {
+.Loading {
   position: absolute;
-  z-index: 9999;
+  z-index: $--z-index-deepest;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 100%;
   background: black;
-  img {
+  &__Image {
     animation-name: fade;
     animation-duration: 1.5s;
     animation-iteration-count: infinite;
     animation-direction: alternate-reverse;
   }
-}
-
-@keyframes fade {
-  0% {
-    opacity: 0.2;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 1s;
-}
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
 }
 </style>

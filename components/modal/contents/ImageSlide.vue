@@ -1,15 +1,27 @@
 <template>
-  <swiper class="swiper-container-image" :options="swiperOption">
-    <swiper-slide v-for="(img, index) in images" :key="index">
+  <swiper id="swiperImage" class="ImageSlide" :options="swiperOption">
+    <swiper-slide
+      v-for="(img, index) in images"
+      :key="index"
+      class="ImageSlide__Wrapper"
+    >
       <img
-        class="image-slide"
+        class="ImageSlide__Content"
         :src="require(`~/assets/images/images-area/${img.fileName}`)"
         :alt="img.title"
         @click.stop
       />
     </swiper-slide>
-    <div slot="button-prev" class="swiper-button-prev" @click.stop></div>
-    <div slot="button-next" class="swiper-button-next" @click.stop></div>
+    <div
+      slot="button-prev"
+      class="swiper-button swiper-button-prev"
+      @click.stop
+    ></div>
+    <div
+      slot="button-next"
+      class="swiper-button swiper-button-next"
+      @click.stop
+    ></div>
     <div slot="pagination" class="swiper-pagination" @click.stop></div>
   </swiper>
 </template>
@@ -53,48 +65,44 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.swiper-container-image {
+.ImageSlide {
   width: 100%;
   height: 47vw;
   text-align: center;
-  .swiper-slide {
+  &__Wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
-    .image-slide {
-      width: 73%;
-      height: auto;
-    }
+  }
+  &__Content {
+    width: 73%;
+    height: auto;
   }
 }
 
 // PC縮小版
 @media (max-width: 1200px) {
-  .swiper-container-image {
+  .ImageSlide {
     height: 52vw;
   }
 }
 
 // スマホ＆タブレット
 @media (max-width: 768px) {
-  .swiper-container-image {
+  .ImageSlide {
     height: 58vw;
-    .swiper-slide {
-      .image-slide {
-        width: 85%;
-      }
+    &__Content {
+      width: 85%;
     }
   }
 }
 
 // スマホ＆タブレット
 @media (max-width: 480px) {
-  .swiper-container-image {
+  .ImageSlide {
     height: 68vw;
-    .swiper-slide {
-      .image-slide {
-        width: 95%;
-      }
+    &__Content {
+      width: 95%;
     }
   }
 }
