@@ -1,7 +1,11 @@
 <template>
-  <section id="overviewArea" class="OverviewArea area-section">
-    <div class="OverviewArea__Wrapper compact-container">
-      <div class="OverviewArea__Contents OverviewArea__Info">
+  <section id="overviewArea" class="OverviewArea area-section m-0">
+    <b-row
+      class="OverviewArea__Wrapper compact-container w-100 py-3"
+      cols="1"
+      cols-md="2"
+    >
+      <b-col class="OverviewArea__Contents OverviewArea__Info">
         <h2 class="OverviewArea__Contents__Title">
           <img
             class="width-100 responsive"
@@ -9,14 +13,14 @@
             alt="YouthSignal Infomations"
           />
         </h2>
-        <div class="OverviewArea__Info__List">
+        <div class="OverviewArea__Info__List text-left">
           <div
             v-for="info in $store.state.infomation.list"
             :key="info.id"
             class="OverviewArea__Info__List__Item Info"
           >
             <p class="Info__Text">{{ info.createdAt }}</p>
-            <p class="Info__Text Info__Text--Title">
+            <p class="Info__Text ml-3">
               <!-- モーダルウィンドウでインフォ表示 -->
               <a
                 v-if="info.type === 'modal'"
@@ -34,8 +38,8 @@
             </p>
           </div>
         </div>
-      </div>
-      <div class="OverviewArea__Contents OverviewArea__Movie">
+      </b-col>
+      <b-col class="OverviewArea__Contents OverviewArea__Movie">
         <h2 class="OverviewArea__Contents__Title">
           <img
             v-if="width > 768"
@@ -57,8 +61,8 @@
             controls
           ></video>
         </div>
-      </div>
-    </div>
+      </b-col>
+    </b-row>
   </section>
 </template>
 
@@ -90,25 +94,24 @@ export default {
 <style scoped lang="scss">
 .OverviewArea {
   padding-top: 65%;
-  margin: 0;
   background: url('~assets/images/youthsignal-keyvisual.jpg') no-repeat;
   background-size: 100%;
   &__Wrapper {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: flex-start;
-    justify-content: space-between;
-    width: 100%;
-    padding: 10px 0;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(black, 0.7);
   }
 
   &__Contents {
     width: 50%;
     text-align: center;
+    @media (max-width: $--sm) {
+      width: 100%;
+    }
     &__Title {
       padding: 0 10%;
       margin-bottom: 1rem;
+      @media (max-width: $--sm) {
+        padding: 0 10px;
+      }
     }
   }
 
@@ -117,7 +120,10 @@ export default {
       height: 22vw;
       padding: 0 10% 0 13%;
       overflow-y: scroll;
-      text-align: left;
+      @media (max-width: $--sm) {
+        height: 190px;
+        padding: 0 10px 0 40px;
+      }
       &__Item {
         margin-bottom: 5px;
         font-size: 0.85rem;
@@ -127,10 +133,18 @@ export default {
   }
 
   &__Movie {
+    @media (max-width: $--sm) {
+      margin-top: 2rem;
+    }
     &__Content {
+      @media (max-width: $--sm) {
+        margin-top: 1rem;
+      }
       &__Item {
         width: 80%;
-        height: auto;
+        @media (max-width: $--sm) {
+          width: 95%;
+        }
       }
     }
   }
@@ -140,42 +154,6 @@ export default {
     margin: 0;
     &--Title {
       margin-left: 10px;
-    }
-  }
-}
-
-// タブレット～PC縮小版（INFO, MOVIE の体裁崩れ）
-@media (max-width: 1200px) {
-  .OverviewArea {
-    padding-top: 65%;
-  }
-}
-
-// スマホ & タブレット
-@media (max-width: 768px) {
-  .OverviewArea {
-    &__Contents {
-      width: 100%;
-      &__Title {
-        padding: 0 10px;
-      }
-    }
-
-    &__Info {
-      &__List {
-        height: 190px;
-        padding: 0 10px 0 40px;
-      }
-    }
-
-    &__Movie {
-      margin-top: 2rem;
-      &__Content {
-        margin-top: 1rem;
-        &__Item {
-          width: 95%;
-        }
-      }
     }
   }
 }

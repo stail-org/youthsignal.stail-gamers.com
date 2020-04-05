@@ -8,14 +8,16 @@
           alt="YouthSignal Staff"
         />
       </div>
-      <div class="StaffArea__Members">
-        <div
+      <b-row class="StaffArea__Members mt-5" cols="2">
+        <b-col
           v-for="staff in staffs"
           :key="staff.id"
           class="StaffArea__Members__Item"
         >
-          <p class="StaffArea__Members__Item__Role">{{ staff.role }}</p>
-          <p class="StaffArea__Members__Item__Name">
+          <p class="StaffArea__Members__Item__Role m-0 pb-2">
+            {{ staff.role }}
+          </p>
+          <p class="StaffArea__Members__Item__Name mt-1">
             <span>{{ staff.name }}</span>
             <span v-if="staff.twitterId !== ''" style="float: right;">
               <a
@@ -27,8 +29,8 @@
               >
             </span>
           </p>
-        </div>
-      </div>
+        </b-col>
+      </b-row>
     </div>
   </section>
 </template>
@@ -49,17 +51,8 @@ export default {
 <style scoped lang="scss">
 .StaffArea {
   &__Members {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: flex-start;
-    justify-content: space-between;
-    margin-top: 2rem;
     &__Item {
-      width: 46%;
       &__Role {
-        padding-bottom: 0.2rem;
-        margin-bottom: 0;
-        font-family: 'MS P Gothic', sans-serif;
         font-size: 0.8rem;
         background-image: linear-gradient(
           to right,
@@ -72,17 +65,7 @@ export default {
       }
       &__Name {
         font-size: 1.4rem;
-      }
-    }
-  }
-}
-
-// スマホ＆タブレット
-@media (max-width: 768px) {
-  .StaffArea {
-    &__Members {
-      &__Item {
-        &__Name {
+        @media (max-width: $--sm) {
           font-size: 1rem;
         }
       }

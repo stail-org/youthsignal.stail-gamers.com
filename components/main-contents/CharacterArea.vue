@@ -1,14 +1,6 @@
 <template>
-  <section id="characterArea" class="CharacterArea area-section">
-    <div class="CharacterArea__Container compact-container">
-      <div class="CharacterArea__SlideButton CharacterArea__SlideButton--Prev">
-        <img
-          class="CharacterArea__SlideButton__Img"
-          src="~/assets/images/character-area/chara-prev-button.png"
-          alt="YouthSignal Character Prev"
-          @click="showPrev"
-        />
-      </div>
+  <section id="characterArea" class="CharacterArea area-section text-center">
+    <div class="CharacterArea__Container compact-container w-100">
       <h2 class="CharacterArea__Title">
         <img
           v-if="width > 1200"
@@ -27,7 +19,13 @@
         v-for="chara in characters"
         v-show="chara.showing"
         :key="chara.id"
-        :class="`CharacterArea__Chara ${chara.id}`"
+        :class="`CharacterArea__Chara`"
+        :style="{
+          'background-image':
+            'url(' +
+            require(`~/assets/images/character-area/youthsignal-chara-${chara.id}.png`) +
+            ')',
+        }"
       >
         <div class="CharacterArea__Chara__Overview">
           <h3 class="CharacterArea__Chara__Overview__Name">
@@ -45,7 +43,12 @@
           </p>
         </div>
         <div class="CharacterArea__Chara__Introduction">
-          <h4 class="CharacterArea__Chara__Introduction__Top">
+          <h4
+            class="CharacterArea__Chara__Introduction__Top"
+            :style="{
+              color: charaColors[chara.id],
+            }"
+          >
             {{ chara.introduction.top }}
           </h4>
           <p
@@ -78,6 +81,14 @@
             >③</span
           >
         </div>
+      </div>
+      <div class="CharacterArea__SlideButton CharacterArea__SlideButton--Prev">
+        <img
+          class="CharacterArea__SlideButton__Img"
+          src="~/assets/images/character-area/chara-prev-button.png"
+          alt="YouthSignal Character Prev"
+          @click="showPrev"
+        />
       </div>
       <div class="CharacterArea__SlideButton CharacterArea__SlideButton--Next">
         <img
@@ -112,6 +123,18 @@ export default {
     return {
       width: window.innerWidth,
       height: window.innerHeight,
+      charaColors: {
+        yoshito: '#838383',
+        shizuno: '#5951ff',
+        asahi: '#ff51f1',
+        riko: '#ff5151',
+        shunpei: '#51c8ff',
+        saya: '#e4ff51',
+        mahiro: '#97ff51',
+        suzu: '#ff9751',
+        yuto: '#51ffa3',
+        toshiyuki: '#a16740',
+      },
     }
   },
   computed: {
@@ -137,118 +160,42 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.yoshito {
-  background: url('~assets/images/character-area/youthsignal-chara-yoshito.png')
-    no-repeat;
-  h4 {
-    color: #838383;
-  }
-}
-
-.shizuno {
-  background: url('~assets/images/character-area/youthsignal-chara-shizuno.png')
-    no-repeat;
-  h4 {
-    color: #5951ff;
-  }
-}
-
-.asahi {
-  background: url('~assets/images/character-area/youthsignal-chara-asahi.png')
-    no-repeat;
-  h4 {
-    color: #ff51f1;
-  }
-}
-
-.riko {
-  background: url('~assets/images/character-area/youthsignal-chara-riko.png')
-    no-repeat;
-  h4 {
-    color: #ff5151;
-  }
-}
-
-.shunpei {
-  background: url('~assets/images/character-area/youthsignal-chara-shunpei.png')
-    no-repeat;
-  h4 {
-    color: #51c8ff;
-  }
-}
-
-.saya {
-  background: url('~assets/images/character-area/youthsignal-chara-saya.png')
-    no-repeat;
-  h4 {
-    color: #e4ff51;
-  }
-}
-
-.mahiro {
-  background: url('~assets/images/character-area/youthsignal-chara-mahiro.png')
-    no-repeat;
-  h4 {
-    color: #97ff51;
-  }
-}
-
-.suzu {
-  background: url('~assets/images/character-area/youthsignal-chara-suzu.png')
-    no-repeat;
-  h4 {
-    color: #ff9751;
-  }
-}
-
-.yuto {
-  background: url('~assets/images/character-area/youthsignal-chara-yuto.png')
-    no-repeat;
-  h4 {
-    color: #51ffa3;
-  }
-}
-
-.toshiyuki {
-  background: url('~assets/images/character-area/youthsignal-chara-toshiyuki.png')
-    no-repeat;
-  h4 {
-    color: #a16740;
-  }
-}
 .CharacterArea {
-  text-align: center;
   &__Container {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: flex-start;
-    justify-content: space-around;
-    width: 100%;
-  }
-  &__Title {
-    margin-top: 7%;
-    &__Img {
-      width: 71px;
-      height: auto;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 15% auto auto 15%;
+    @media (max-width: $--lg) {
+      grid-template-rows: 2fr;
+      grid-template-columns: 1fr;
     }
   }
-  &__SlideButton {
-    align-self: center;
-    margin: 0 6%;
-    cursor: pointer;
+  &__Title {
+    margin-top: 5rem;
     &__Img {
-      width: 101px;
-      height: auto;
+      @media (max-width: $--lg) {
+        width: 90%;
+      }
     }
   }
   &__Chara {
-    padding: 10% 3% 10% 25rem;
+    padding: 18% 5rem 18% 25rem;
     text-align: left;
+    background-repeat: no-repeat;
     background-size: cover;
+    @media (max-width: $--sm) {
+      padding: 80px 5% 50px 5%;
+      background-size: auto 600px;
+    }
     &__Overview {
-      display: inline-block;
+      @media (max-width: $--sm) {
+        margin-left: 160px;
+      }
       &__Name {
         font-size: 4vw;
+        @media (max-width: $--sm) {
+          font-size: 2rem;
+        }
         rt {
           font-size: 1vw;
         }
@@ -256,17 +203,31 @@ export default {
       &__CV {
         font-size: 1.2rem;
         text-align: right;
+        @media (max-width: $--sm) {
+          font-size: 1rem;
+        }
       }
     }
     &__Introduction {
       margin-top: 4rem;
+      @media (max-width: $--sm) {
+        margin-top: 50px;
+      }
       &__Top {
         margin-bottom: 2rem;
         font-size: 1.8rem;
+        @media (max-width: $--sm) {
+          margin-bottom: 100px;
+          margin-left: 160px;
+          font-size: 1.5rem;
+        }
       }
       &__Text {
         margin-bottom: 0.2rem;
         font-size: 1.2rem;
+        @media (max-width: $--sm) {
+          font-size: 1rem;
+        }
       }
       &__Spacer {
         margin-bottom: 1.6rem;
@@ -275,6 +236,10 @@ export default {
     &__Voice {
       margin-top: 3rem;
       text-align: right;
+      @media (max-width: $--sm) {
+        width: 100%;
+        margin-top: 2rem;
+      }
       &__Title {
         margin-right: 1.5rem;
       }
@@ -282,98 +247,34 @@ export default {
         margin-left: 1.5rem;
         font-size: 2.2rem;
         cursor: pointer;
+        @media (max-width: $--sm) {
+          font-size: 2rem;
+        }
       }
+    }
+  }
+  &__SlideButton {
+    align-self: center;
+    cursor: pointer;
+    @media (max-width: $--lg) {
+      display: none;
+    }
+    &--Prev {
+      grid-row: 1;
     }
   }
   &__SelectList {
+    @media (max-width: $--sm) {
+      padding: 0 5%;
+    }
     &__Img {
       margin-right: 0.5rem;
       cursor: pointer;
-    }
-  }
-}
-// レスポンシブ対応
-@media (max-width: 1536px) {
-  .CharacterArea {
-    &__Title {
-      &__Img {
-        width: 50px;
-      }
-    }
-    &__SlideButton {
-      margin: 0 2%;
-      &__Img {
-        width: 80px;
-        height: auto;
-      }
-    }
-  }
-}
-
-@media (max-width: 1200px) {
-  .CharacterArea {
-    &__SelectList {
-      &__Img {
+      @media (max-width: $--lg) {
         width: 9%;
         margin-right: 3px;
       }
-    }
-    &__Container {
-      flex-flow: column nowrap;
-      align-items: center;
-    }
-    &__Title {
-      margin: 0 5% 0 5%;
-      &__Img {
-        width: 100%;
-      }
-    }
-    &__SlideButton {
-      display: none;
-    }
-  }
-}
-
-// タブレット
-@media (max-width: 768px) {
-  .CharacterArea {
-    &__Container {
-      width: 100%;
-    }
-    &__Chara {
-      padding: 80px 5% 50px 5%;
-      background-size: auto 600px;
-      &__Overview {
-        margin-left: 160px;
-        &__Name {
-          font-size: 2rem;
-        }
-        .cv {
-          font-size: 1rem;
-        }
-      }
-      &__Introduction {
-        margin-top: 50px;
-        &__Top {
-          margin-bottom: 100px;
-          margin-left: 160px;
-          font-size: 1.5rem;
-        }
-        &__Text {
-          font-size: 1rem;
-        }
-      }
-      &__Voice {
-        width: 100%;
-        margin-top: 2rem;
-        &__Button {
-          font-size: 2rem;
-        }
-      }
-    }
-    &__SelectList {
-      padding: 0 5% 0 5%;
-      &__Img {
+      @media (max-width: $--sm) {
         width: 60px;
         margin-right: 3px;
         margin-bottom: 3px;

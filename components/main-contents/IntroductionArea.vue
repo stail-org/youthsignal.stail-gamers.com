@@ -44,7 +44,7 @@
         </p>
       </div>
     </div>
-    <div class="IntroductionArea__Promotion">
+    <div class="IntroductionArea__Promotion w-100">
       <div class="IntroductionArea__Promotion__Item">
         <p>
           <img
@@ -102,125 +102,39 @@ export default {
   &__Container {
     width: 55%;
     margin: 0 auto;
+    @media (max-width: $--lg) {
+      width: 80%;
+    }
+    @media (max-width: $--sm) {
+      width: 90%;
+    }
   }
   &__Title {
     margin-top: 15%;
+    &__Img {
+      @media (max-width: $--sm) {
+        width: 100%;
+        height: auto;
+      }
+    }
   }
   &__Synopsis {
     margin-top: 3rem;
     &__Top {
       margin-top: 3rem;
       margin-bottom: 3rem;
+      @media (max-width: $--xs) {
+        font-size: 1rem;
+      }
       &__Img {
         max-width: 846px;
+        @media (max-width: $--xs) {
+          display: none;
+        }
       }
       &__Text {
         display: none;
-      }
-    }
-    &__Text {
-      margin-bottom: 2rem;
-      font-size: 1.3rem;
-    }
-  }
-  &__Promotion {
-    width: 100%;
-    margin-top: 10%;
-    font-size: 1.3rem;
-    &__Item {
-      margin-bottom: 5%;
-      &__Description {
-        &--Right {
-          padding-right: 10%;
-          padding-left: 36%;
-        }
-        &--Left {
-          padding-left: 15%;
-        }
-      }
-    }
-  }
-}
-
-// PC縮小版
-@media (max-width: 1200px) {
-  .IntroductionArea {
-    &__Container {
-      width: 80%;
-    }
-    &__Promotion {
-      &__Item {
-        &__Description {
-          &--Right {
-            padding-right: 10%;
-            padding-left: 10%;
-          }
-          &--Left {
-            padding-right: 10%;
-            padding-left: 10%;
-          }
-        }
-      }
-    }
-  }
-}
-
-// タブレット
-@media (max-width: 768px) {
-  .IntroductionArea {
-    &__Container {
-      width: 90%;
-    }
-    &__Title {
-      &__Img {
-        width: 100%;
-        height: auto;
-      }
-    }
-    &__Synopsis {
-      &__Text {
-        font-size: 1.2rem;
-      }
-    }
-    &__Promotion {
-      font-size: 1.2rem;
-      &__Item {
-        &__Description {
-          &--Right {
-            padding-right: 5%;
-            padding-left: 5%;
-          }
-          &--Left {
-            padding-right: 5%;
-            padding-left: 5%;
-          }
-        }
-      }
-    }
-  }
-}
-
-// エリアタイトルの画像サイズ
-@media (max-width: 588px) {
-  .IntroductionArea {
-    &__Title {
-      img {
-        width: 90%;
-      }
-    }
-  }
-}
-
-// スマホ
-@media (max-width: 480px) {
-  .IntroductionArea {
-    &__Synopsis {
-      &__Top {
-        font-size: 1rem;
-        &__Img {
-          display: none;
-        }
-        &__Text {
+        @media (max-width: $--xs) {
           display: inline;
           font-size: 2.2rem;
           line-height: 3rem;
@@ -239,13 +153,55 @@ export default {
         }
       }
     }
-    &__Promotion {
+    &__Text {
+      margin-bottom: 2rem;
+      font-size: 1.3rem;
+      @media (max-width: $--sm) {
+        font-size: 1.2rem;
+      }
+    }
+  }
+  &__Promotion {
+    margin-top: 10%;
+    font-size: 1.3rem;
+    @media (max-width: $--sm) {
+      font-size: 1.2rem;
+    }
+    @media (max-width: $--xs) {
       font-size: 1rem;
-      &__Item {
+    }
+    &__Item {
+      margin-bottom: 5%;
+      @media (max-width: $--xs) {
         p:first-of-type {
           overflow-x: scroll;
           img {
             width: 200%;
+          }
+        }
+      }
+      &__Description {
+        &--Right {
+          padding-right: 10%;
+          padding-left: 36%;
+          @media (max-width: $--lg) {
+            padding-right: 10%;
+            padding-left: 10%;
+          }
+          @media (max-width: $--sm) {
+            padding-right: 5%;
+            padding-left: 5%;
+          }
+        }
+        &--Left {
+          padding-left: 15%;
+          @media (max-width: $--lg) {
+            padding-right: 10%;
+            padding-left: 10%;
+          }
+          @media (max-width: $--sm) {
+            padding-right: 5%;
+            padding-left: 5%;
           }
         }
       }
@@ -263,5 +219,16 @@ export default {
 ::-webkit-scrollbar-thumb {
   background-color: rgba(255, 255, 255, 0.3);
   border-radius: 10px;
+}
+
+// エリアタイトルの画像サイズ
+@media (max-width: 588px) {
+  .IntroductionArea {
+    &__Title {
+      img {
+        width: 90%;
+      }
+    }
+  }
 }
 </style>

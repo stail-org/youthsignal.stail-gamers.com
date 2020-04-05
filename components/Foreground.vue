@@ -1,6 +1,6 @@
 <template>
-  <div class="Foreground">
-    <div class="Foreground__LightWrapper">
+  <div class="Foreground position-fixed w-100 h-100">
+    <div class="Foreground__LightWrapper position-absolute">
       <div
         id="lightFlicker"
         class="Foreground__LightWrapper__Item Foreground__LightWrapper__Item--Flicker"
@@ -9,7 +9,7 @@
         class="Foreground__LightWrapper__Item Foreground__LightWrapper__Item--Ray"
       ></div>
     </div>
-    <div class="Foreground__ParticlesWrapper">
+    <div class="Foreground__ParticlesWrapper position-absolute w-100 h-100">
       <div
         id="particlesBlue"
         class="Foreground__ParticlesWrapper__Item Foreground__ParticlesWrapper__Item--Blue"
@@ -61,14 +61,10 @@ export default {
 
 <style scoped lang="scss">
 .Foreground {
-  position: fixed;
   top: 0;
   z-index: $--z-index-deeper;
-  width: 100%;
-  height: 100%;
   pointer-events: none;
   &__LightWrapper {
-    position: absolute;
     width: 1920px;
     height: 1080px;
     opacity: 0.7;
@@ -88,13 +84,8 @@ export default {
     }
   }
   &__ParticlesWrapper {
-    position: absolute;
-    width: 100%;
-    height: 100%;
     &__Item {
       position: absolute;
-      width: 100%;
-      height: 100%;
       &--Blue {
         animation: blink 2.5s linear infinite alternate;
       }
@@ -126,9 +117,6 @@ export default {
       width: 1600px;
       height: 900px;
       &__Item {
-        position: absolute;
-        width: 100%;
-        height: 100%;
         &--Flicker {
           background-size: 1600px 900px;
         }
@@ -148,63 +136,57 @@ export default {
 }
 
 // タブレット～PC縮小版
-@media (max-width: 1300px) {
+@media (max-width: $--lg) {
   .Foreground {
     &__LightWrapper {
       width: 1200px;
       height: 675px;
       &__Item {
-        position: absolute;
-        width: 100%;
-        height: 100%;
         &--Flicker {
           background-size: 1200px 675px;
         }
         &--Ray {
           background-size: 1200px 21600px;
-          animation: splite-1200 2.6s steps(31) infinite alternate-reverse;
+          animation: splite-lg 2.6s steps(31) infinite alternate-reverse;
         }
       }
     }
   }
 }
 
-@keyframes splite-1200 {
+@keyframes splite-lg {
   to {
     background-position-y: -20925px;
   }
 }
 
 // タブレット～PC縮小版
-@media (max-width: 980px) {
+@media (max-width: $--md) {
   .Foreground {
     &__LightWrapper {
       width: 960px;
       height: 540px;
       &__Item {
-        position: absolute;
-        width: 100%;
-        height: 100%;
         &--Flicker {
           background-size: 960px 540px;
         }
         &--Ray {
           background-size: 960px 17280px;
-          animation: splite-960 2.6s steps(31) infinite alternate-reverse;
+          animation: splite-md 2.6s steps(31) infinite alternate-reverse;
         }
       }
     }
   }
 }
 
-@keyframes splite-960 {
+@keyframes splite-md {
   to {
     background-position-y: -16740px;
   }
 }
 
 // タブレット～PC縮小版
-@media (max-width: 768px) {
+@media (max-width: $--sm) {
   .Foreground {
     display: none;
   }

@@ -1,12 +1,17 @@
 <template>
   <transition name="fade">
-    <div v-if="isLoading" class="Loading">
-      <img
-        class="Loading__Image"
-        src="~/assets/images/youthsignal-header.png"
-        alt="youthsignal loading ..."
-      />
-    </div>
+    <b-row
+      v-if="isLoading"
+      class="Loading w-100 h-100 text-center position-absolute"
+    >
+      <b-col class="my-auto">
+        <img
+          class="Loading__Image"
+          src="~/assets/images/youthsignal-header.png"
+          alt="youthsignal loading ..."
+        />
+      </b-col>
+    </b-row>
   </transition>
 </template>
 
@@ -43,16 +48,10 @@ export default {
 
 <style scoped lang="scss">
 .Loading {
-  position: absolute;
   z-index: $--z-index-deepest;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
   background: black;
   &__Image {
-    animation-name: fade;
+    animation-name: flicker;
     animation-duration: 1.5s;
     animation-iteration-count: infinite;
     animation-direction: alternate-reverse;
