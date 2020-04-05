@@ -3,17 +3,23 @@
     <div
       v-show="$store.state.modal.visible"
       id="modalOuter"
-      class="ModalContainer"
+      class="ModalContainer position-absolute"
     >
       <div
         id="modalInner"
         class="modal show ModalContainer__Inner"
         @click="closeModal"
       >
-        <div style="width: 100%;">
+        <div class="w-100">
           <button
             id="btnModalClose"
-            class="close ModalContainer__Inner__CloseButton"
+            :class="[
+              'close',
+              'ModalContainer__Inner__CloseButton',
+              'position-absolute',
+              'mr-2',
+              'mb-4',
+            ]"
             type="button"
             aria-label="Close"
             @keydown.esc="closeModal"
@@ -47,7 +53,6 @@ export default {
 
 <style scoped lang="scss">
 .ModalContainer {
-  position: absolute;
   z-index: $--z-index-deepest;
   &__Inner {
     display: flex;
@@ -55,18 +60,12 @@ export default {
     align-content: center;
     align-items: center;
     &__CloseButton {
-      position: absolute;
       top: 0;
       right: 0;
       z-index: $--z-index-deepest;
-      margin-right: 10px;
-      margin-bottom: 20px;
-      font-size: 4rem;
-      line-height: 2.5rem;
+      font-size: 3rem;
       color: $--color-cyan;
       text-shadow: none;
-      cursor: pointer;
-      opacity: 0.7;
       &:focus {
         outline: none;
       }
@@ -77,9 +76,5 @@ export default {
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.3s;
-}
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
 }
 </style>

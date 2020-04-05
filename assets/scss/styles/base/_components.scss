@@ -6,6 +6,7 @@
   width: 52px !important;
   height: 52px !important;
   background-size: 52px 52px !important;
+  opacity: 0.75;
   &::after {
     color: $--color-cyan !important;
     @media (min-width: $--md) {
@@ -14,6 +15,9 @@
   }
   &:focus {
     outline: none !important;
+  }
+  &:hover {
+    opacity: 1;
   }
   &-prev {
     right: auto !important;

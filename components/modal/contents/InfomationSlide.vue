@@ -1,11 +1,15 @@
 <template>
-  <swiper id="swiperInfomation" class="InfomationSlide" :options="swiperOption">
+  <swiper
+    id="swiperInfomation"
+    class="InfomationSlide w-100 text-center"
+    :options="swiperOption"
+  >
     <swiper-slide
       v-for="info in $store.getters['infomation/modalList']"
       :key="info.id"
     >
       <img
-        class="InfomationSlide__Content"
+        class="InfomationSlide__Content w-auto h-100"
         :src="
           require(`~/assets/images/overview-area/infomations/${info.createdAt.replace(
             /-/g,
@@ -61,22 +65,12 @@ export default {
 
 <style scoped lang="scss">
 .InfomationSlide {
-  width: 100%;
   height: 95vh;
   padding-bottom: 40px;
-  text-align: center;
-  &__Content {
-    width: auto;
-    height: 100%;
-  }
-}
-@media (max-width: 950px) {
-  .InfomationSlide {
+  @media (max-width: $--md) {
     height: 90vw;
   }
-}
-@media (max-width: 768px) {
-  .InfomationSlide {
+  @media (max-width: $--sm) {
     height: 96vw;
   }
 }

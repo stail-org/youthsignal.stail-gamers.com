@@ -1,13 +1,4 @@
-// fade 系
-
-@keyframes fade {
-  0% {
-    opacity: 0.2;
-  }
-  100% {
-    opacity: 1;
-  }
-}
+// vue-transition: fade
 
 .fade-enter-active,
 .fade-leave-active {
@@ -16,6 +7,17 @@
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
+}
+
+// 明滅
+
+@keyframes flicker {
+  0% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 // ぴょんぴょんバウンド

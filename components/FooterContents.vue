@@ -1,5 +1,5 @@
 <template>
-  <footer class="Footer">
+  <footer class="Footer w-100 mt-5 py-3 text-center">
     © 2019 Stail
   </footer>
 </template>
@@ -12,10 +12,6 @@ export default {
 
 <style scoped lang="scss">
 .Footer {
-  width: 100%;
-  padding: 1rem 0;
-  margin-top: 2rem;
-  text-align: center;
   background: black;
 }
 </style>

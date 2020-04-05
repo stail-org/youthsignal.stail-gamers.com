@@ -1,12 +1,16 @@
 <template>
-  <swiper id="swiperImage" class="ImageSlide" :options="swiperOption">
+  <swiper
+    id="swiperImage"
+    class="ImageSlide w-100 text-center"
+    :options="swiperOption"
+  >
     <swiper-slide
       v-for="(img, index) in images"
       :key="index"
       class="ImageSlide__Wrapper"
     >
       <img
-        class="ImageSlide__Content"
+        class="ImageSlide__Content h-auto"
         :src="require(`~/assets/images/images-area/${img.fileName}`)"
         :alt="img.title"
         @click.stop
@@ -66,9 +70,16 @@ export default {
 
 <style scoped lang="scss">
 .ImageSlide {
-  width: 100%;
   height: 47vw;
-  text-align: center;
+  @media (max-width: $--lg) {
+    height: 50vw;
+  }
+  @media (max-width: $--sm) {
+    height: 58vw;
+  }
+  @media (max-width: $--xs) {
+    height: 68vw;
+  }
   &__Wrapper {
     display: flex;
     align-items: center;
@@ -76,32 +87,10 @@ export default {
   }
   &__Content {
     width: 73%;
-    height: auto;
-  }
-}
-
-// PC縮小版
-@media (max-width: 1200px) {
-  .ImageSlide {
-    height: 52vw;
-  }
-}
-
-// スマホ＆タブレット
-@media (max-width: 768px) {
-  .ImageSlide {
-    height: 58vw;
-    &__Content {
+    @media (max-width: $--sm) {
       width: 85%;
     }
-  }
-}
-
-// スマホ＆タブレット
-@media (max-width: 480px) {
-  .ImageSlide {
-    height: 68vw;
-    &__Content {
+    @media (max-width: $--xs) {
       width: 95%;
     }
   }

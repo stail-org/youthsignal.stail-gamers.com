@@ -1,6 +1,6 @@
 <template>
   <section id="storyArea" class="StoryArea aria-section">
-    <div class="compact-container">
+    <div class="compact-container text-center">
       <h2 class="StoryArea__Title">
         <img
           v-if="width > 768"
@@ -71,10 +71,18 @@ export default {
 
 <style scoped lang="scss">
 .StoryArea {
-  text-align: center;
   &__Title {
     margin-top: 12rem;
     margin-bottom: 4rem;
+    @media (max-width: $--sm) {
+      font-size: 2.5rem;
+    }
+    &__Img {
+      @media (max-width: $--sm) {
+        width: 100%;
+        height: auto;
+      }
+    }
   }
   &__Contents {
     padding: 0 2rem;
@@ -82,30 +90,15 @@ export default {
     &__Title {
       margin-bottom: 4rem;
       font-size: 3.5rem;
+      @media (max-width: $--sm) {
+        font-size: 2.5rem;
+      }
     }
     p {
       margin-bottom: 2rem;
       font-size: 1.3rem;
       line-height: 2rem;
-    }
-  }
-}
-
-// スマホ＆タブレット
-@media (max-width: 768px) {
-  .StoryArea {
-    &__Title {
-      font-size: 2.5rem;
-      &__Img {
-        width: 90%;
-        height: auto;
-      }
-    }
-    &__Contents {
-      &__Title {
-        font-size: 2.5rem;
-      }
-      p {
+      @media (max-width: $--sm) {
         font-size: 1rem;
       }
     }

@@ -8,14 +8,14 @@
           alt="YouthSignal Spec"
         />
       </div>
-      <div class="SpecArea__Contents">
-        <div
+      <b-row class="SpecArea__Contents mt-5" cols="2">
+        <b-col
           v-for="spec in specs"
           :key="spec.id"
           class="SpecArea__Contents__Item"
         >
-          <p class="SpecArea__Contents__Item__Key">{{ spec.key }}</p>
-          <p class="SpecArea__Contents__Item__Value">
+          <p class="SpecArea__Contents__Item__Key m-0 pb-2">{{ spec.key }}</p>
+          <p class="SpecArea__Contents__Item__Value mt-1">
             <template v-if="Array.isArray(spec.value)">
               <span>{{ spec.value[0][0] }}</span>
               <span style="float: right;">{{ spec.value[0][1] }}</span>
@@ -31,8 +31,8 @@
             v-if="[5, 6].includes(spec.id)"
             class="SpecArea__Contents__Item__Spacer"
           />
-        </div>
-      </div>
+        </b-col>
+      </b-row>
     </div>
   </section>
 </template>
@@ -53,17 +53,10 @@ export default {
 <style scoped lang="scss">
 .SpecArea {
   &__Contents {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: flex-start;
-    justify-content: space-between;
     margin-top: 2rem;
     &__Item {
       width: 46%;
       &__Key {
-        padding-bottom: 0.3rem;
-        margin-bottom: 0.1rem;
-        font-family: 'MS P Gothic', sans-serif;
         font-size: 0.8rem;
         background-image: linear-gradient(
           to right,
@@ -76,23 +69,13 @@ export default {
       }
       &__Value {
         font-size: 1.4rem;
+        @media (max-width: $--sm) {
+          font-size: 1rem;
+        }
       }
       &__Spacer {
         margin-bottom: 6rem;
-      }
-    }
-  }
-}
-
-// スマホ＆タブレット
-@media (max-width: 768px) {
-  .SpecArea {
-    &__Contents {
-      &__Item {
-        &__Value {
-          font-size: 1rem;
-        }
-        &__Spacer {
+        @media (max-width: $--sm) {
           margin-bottom: 4rem;
         }
       }
