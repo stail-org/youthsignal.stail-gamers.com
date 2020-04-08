@@ -1,5 +1,15 @@
-export const state = () => ({
-  list: [
+import { Module, VuexModule } from 'vuex-module-decorators'
+
+export interface StaffData {
+  id: number
+  name: string
+  role: string
+  twitterId: string
+}
+
+@Module({ stateFactory: true, namespaced: true, name: 'staff' })
+export default class Staff extends VuexModule {
+  list: StaffData[] = [
     {
       id: 1,
       name: '瀞昧幹',
@@ -54,5 +64,5 @@ export const state = () => ({
       role: 'サウンド',
       twitterId: 'k_i_1_b_o',
     },
-  ],
-})
+  ]
+}

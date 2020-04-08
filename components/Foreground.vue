@@ -22,40 +22,41 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'Foreground',
-  data() {
-    return {
-      flashFlag: true,
-    }
-  },
+<script lang="ts">
+import { Component, Vue } from 'nuxt-property-decorator'
+
+@Component
+export default class Foreground extends Vue {
+  flashFlag: boolean = true
+
   mounted() {
     const self = this
 
     // particle.js 実行
-    this.$executeParticles()
+    ;(this as any).$executeParticles()
 
     // 光点滅
     setInterval(function () {
       self.lightFlicker()
     }, 100)
-  },
-  methods: {
-    lightFlicker() {
-      // ランダム発生
-      if (Math.random() > 0.8) this.flashFlag = true
-      else this.flashFlag = false
+  }
 
-      // アニメーション（明滅）
-      if (this.flashFlag === true) {
-        document.getElementById('lightFlicker').style.opacity = 0.9
-        setTimeout(() => {
-          document.getElementById('lightFlicker').style.opacity = 1.0
-        }, 50)
-      }
-    },
-  },
+  lightFlicker() {
+    // ランダム発生
+    if (Math.random() > 0.8) this.flashFlag = true
+    else this.flashFlag = false
+
+    // アニメーション（明滅）
+    if (this.flashFlag === true) {
+      const lightFlickerElement = document.getElementById('lightFlicker')
+      if (!lightFlickerElement) return
+
+      lightFlickerElement.style.opacity = '0.9'
+      setTimeout(() => {
+        lightFlickerElement.style.opacity = '1.0'
+      }, 50)
+    }
+  }
 }
 </script>
 

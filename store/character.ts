@@ -1,7 +1,59 @@
-export const state = () => ({
-  audio: null,
-  showingIndex: 1,
-  list: [
+import { Module, VuexModule, Mutation } from 'vuex-module-decorators'
+
+export interface CharacterData {
+  id:
+    | 'yoshito'
+    | 'shizuno'
+    | 'asahi'
+    | 'riko'
+    | 'shunpei'
+    | 'saya'
+    | 'suzu'
+    | 'mahiro'
+    | 'yuto'
+    | 'toshiyuki'
+  jaName:
+    | '宮道 嘉人'
+    | '東雲 静乃'
+    | '桜桃野 朝姫'
+    | '椿 凛子'
+    | '吉田 駿平'
+    | '金蘭 咲綾'
+    | '浦戸 鈴'
+    | '土筆田 茉尋'
+    | '深海 優仁'
+    | '神崎 俊之'
+  furigana:
+    | 'くどう よしと'
+    | 'しののめ しずの'
+    | 'ゆすらの あさひ'
+    | 'つばき りこ'
+    | 'よしだ しゅんぺい'
+    | 'かねらん さあや'
+    | 'うらと すず'
+    | 'つくしだ まひろ'
+    | 'しんかい ゆうと'
+    | 'かんざき としゆき'
+  showing: boolean
+  overview: {
+    cv: string
+  }
+  introduction: {
+    top: string
+    text: string[]
+    bot: string
+  }
+  img: {
+    thumbnail: string
+  }
+}
+
+@Module({ stateFactory: true, namespaced: true, name: 'character' })
+export default class Character extends VuexModule {
+  audio: HTMLAudioElement = new Audio()
+  showingIndex: number = 1
+
+  list: CharacterData[] = [
     {
       id: 'yoshito',
       jaName: '宮道 嘉人',
@@ -233,41 +285,48 @@ export const state = () => ({
         thumbnail: 'youthsignal-chara-thumbnail-asahi.png',
       },
     },
-  ],
-})
+  ]
 
-export const mutations = {
-  show(state, chara) {
+  @Mutation
+  show(characterAreaData: CharacterData) {
     // 現在表示中のキャラを非表示にする
-    state.list[state.showingIndex].showing = false
+    this.list[this.showingIndex].showing = false
     // 対象キャラを表示
-    chara.showing = true
-    state.showingIndex = state.list.findIndex((c) => c.id === chara.id)
-  },
-  showPrev(state) {
+    characterAreaData.showing = true
+    this.showingIndex = this.list.findIndex(
+      (c) => c.id === characterAreaData.id
+    )
+  }
+
+  @Mutation
+  showPrev() {
     // 現在表示中のキャラを非表示にする
-    state.list[state.showingIndex].showing = false
+    this.list[this.showingIndex].showing = false
     // 前の表示キャラ番号を計算
-    let index = state.showingIndex
+    let index = this.showingIndex
     index = --index >= 0 ? index : 10 + index
-    state.showingIndex = index
+    this.showingIndex = index
     // 対象キャラ表示
-    state.list[index].showing = true
-  },
-  showNext(state) {
+    this.list[index].showing = true
+  }
+
+  @Mutation
+  showNext() {
     // 現在表示中のキャラを非表示にする
-    state.list[state.showingIndex].showing = false
+    this.list[this.showingIndex].showing = false
     // 前の表示キャラ番号を計算
-    const index = ++state.showingIndex % 10
-    state.showingIndex = index
+    const index = ++this.showingIndex % 10
+    this.showingIndex = index
     // 対象キャラ表示
-    state.list[index].showing = true
-  },
-  playVoice(state, src) {
-    let voice = state.audio
+    this.list[index].showing = true
+  }
+
+  @Mutation
+  playVoice(src: string) {
+    let voice = this.audio
     if (voice === null) voice = new Audio()
     else voice.pause()
     voice.src = src
     voice.play()
-  },
+  }
 }

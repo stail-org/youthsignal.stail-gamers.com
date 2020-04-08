@@ -13,7 +13,7 @@
           class="ImagesArea__Container__Item__Img"
           :src="require(`~/assets/images/images-area/${largeImage.fileName}`)"
           :alt="largeImage.title"
-          @click="$store.commit('modal/show', { mode: 'image', showTarget: 1 })"
+          @click="showModal('image', 1)"
         />
       </div>
       <div
@@ -25,26 +25,30 @@
           class="ImagesArea__Container__Item__Img"
           :src="require(`~/assets/images/images-area/${img.fileName}`)"
           :alt="img.title"
-          @click="
-            $store.commit('modal/show', {
-              mode: 'image',
-              showTarget: index + 2,
-            })
-          "
+          @click="showModal('image', index + 2)"
         />
       </div>
     </div>
   </section>
 </template>
 
-<script>
-import { mapState } from 'vuex'
+<script lang="ts">
+import { Component, Vue } from 'nuxt-property-decorator'
+import { imageStore, modalStore } from '~/store'
 
-export default {
-  name: 'ImagesArea',
-  computed: {
-    ...mapState('image', ['largeImage', 'smallImages']),
-  },
+@Component
+export default class ImagesArea extends Vue {
+  get largeImage() {
+    return imageStore.largeImage
+  }
+
+  get smallImages() {
+    return imageStore.smallImages
+  }
+
+  showModal(mode: 'infomation' | 'image', showTarget: number) {
+    modalStore.show({ mode, showTarget })
+  }
 }
 </script>
 

@@ -30,41 +30,46 @@
   </swiper>
 </template>
 
-<script>
-import { mapState } from 'vuex'
+<script lang="ts">
+import { Component, Vue } from 'nuxt-property-decorator'
+import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
+import { imageStore } from '~/store'
 
 import 'swiper/css/swiper.css'
-import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 
-export default {
+@Component({
   components: {
     Swiper,
     SwiperSlide,
   },
-  data() {
-    return {
-      swiperOption: {
-        loop: true,
-        pagination: {
-          el: '.swiper-pagination',
-          type: 'bullets',
-          clickable: true,
-        },
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-      },
-    }
-  },
-  computed: {
-    images() {
-      const images = Object.assign([], this.smallImages)
-      images.unshift(Object.assign({}, this.largeImage))
-      return images
+})
+export default class InfomationSlide extends Vue {
+  swiperOption = {
+    loop: true,
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'bullets',
+      clickable: true,
     },
-    ...mapState('image', ['largeImage', 'smallImages']),
-  },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  }
+
+  get largeImage() {
+    return imageStore.largeImage
+  }
+
+  get smallImages() {
+    return imageStore.smallImages
+  }
+
+  get images() {
+    const images = Object.assign([], this.smallImages)
+    images.unshift(Object.assign({}, this.largeImage))
+    return images
+  }
 }
 </script>
 

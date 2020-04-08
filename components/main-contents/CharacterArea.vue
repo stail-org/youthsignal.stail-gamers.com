@@ -114,48 +114,64 @@
   </section>
 </template>
 
-<script>
-import { mapState, mapMutations } from 'vuex'
+<script lang="ts">
+import { Component, Vue } from 'nuxt-property-decorator'
+import { CharacterData } from '~/store/character'
+import { characterStore } from '~/store'
 
-export default {
-  name: 'CharacterArea',
-  data() {
-    return {
-      width: window.innerWidth,
-      height: window.innerHeight,
-      charaColors: {
-        yoshito: '#838383',
-        shizuno: '#5951ff',
-        asahi: '#ff51f1',
-        riko: '#ff5151',
-        shunpei: '#51c8ff',
-        saya: '#e4ff51',
-        mahiro: '#97ff51',
-        suzu: '#ff9751',
-        yuto: '#51ffa3',
-        toshiyuki: '#a16740',
-      },
-    }
-  },
-  computed: {
-    ...mapState('character', { characters: 'list' }),
-  },
+@Component
+export default class CharacterArea extends Vue {
+  width = window.innerWidth
+  height = window.innerHeight
+  charaColors = {
+    yoshito: '#838383',
+    shizuno: '#5951ff',
+    asahi: '#ff51f1',
+    riko: '#ff5151',
+    shunpei: '#51c8ff',
+    saya: '#e4ff51',
+    mahiro: '#97ff51',
+    suzu: '#ff9751',
+    yuto: '#51ffa3',
+    toshiyuki: '#a16740',
+  }
+
+  get characters() {
+    return characterStore.list
+  }
+
   mounted() {
     window.addEventListener('resize', this.handleResize)
-  },
+  }
+
   beforeDestroy() {
     window.removeEventListener('resize', this.handleResize)
-  },
-  methods: {
-    ...mapMutations('character', ['show', 'showPrev', 'showNext', 'playVoice']),
-    playAudio(id, num) {
-      this.playVoice(`/voice/${id}-${num}.ogg`)
-    },
-    handleResize() {
-      this.width = window.innerWidth
-      this.height = window.innerHeight
-    },
-  },
+  }
+
+  handleResize() {
+    this.width = window.innerWidth
+    this.height = window.innerHeight
+  }
+
+  show(characterAreaData: CharacterData) {
+    characterStore.show(characterAreaData)
+  }
+
+  showPrev() {
+    characterStore.showPrev()
+  }
+
+  showNext() {
+    characterStore.showNext()
+  }
+
+  playVoice(src: string) {
+    characterStore.playVoice(src)
+  }
+
+  playAudio(id: number, num: number) {
+    this.playVoice(`/voice/${id}-${num}.ogg`)
+  }
 }
 </script>
 
