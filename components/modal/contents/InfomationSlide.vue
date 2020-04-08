@@ -4,10 +4,7 @@
     class="InfomationSlide w-100 text-center"
     :options="swiperOption"
   >
-    <swiper-slide
-      v-for="info in $store.getters['infomation/modalList']"
-      :key="info.id"
-    >
+    <swiper-slide v-for="info in infoModalList" :key="info.id">
       <img
         class="InfomationSlide__Content w-auto h-100"
         :src="
@@ -34,32 +31,37 @@
   </swiper>
 </template>
 
-<script>
-import 'swiper/css/swiper.css'
+<script lang="ts">
+import { Component, Vue } from 'nuxt-property-decorator'
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
+import { informationStore } from '~/store'
 
-export default {
+import 'swiper/css/swiper.css'
+
+@Component({
   components: {
     Swiper,
     SwiperSlide,
   },
-  data() {
-    return {
-      swiperOption: {
-        slidesPerView: 1,
-        spaceBetween: 0,
-        loop: true,
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-        },
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-      },
-    }
-  },
+})
+export default class InfomationSlide extends Vue {
+  swiperOption = {
+    slidesPerView: 1,
+    spaceBetween: 0,
+    loop: true,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  }
+
+  get infoModalList() {
+    return informationStore.modalList
+  }
 }
 </script>
 

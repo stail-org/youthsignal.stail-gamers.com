@@ -35,16 +35,15 @@
   </section>
 </template>
 
-<script>
-import { mapState } from 'vuex'
+<script lang="ts">
+import { Component, Vue } from 'nuxt-property-decorator'
+import { staffStore } from '~/store'
 
-export default {
-  StaffArea__Members__Item__Name: 'StaffArea',
-  computed: {
-    ...mapState('staff', {
-      staffs: 'list',
-    }),
-  },
+@Component
+export default class StaffArea extends Vue {
+  get staffs() {
+    return staffStore.list
+  }
 }
 </script>
 

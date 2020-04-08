@@ -1,5 +1,14 @@
-export const state = () => ({
-  list: [
+import { Module, VuexModule } from 'vuex-module-decorators'
+
+export interface SpecData {
+  id: number
+  key: string
+  value: string | string[][]
+}
+
+@Module({ stateFactory: true, namespaced: true, name: 'spec' })
+export default class Spec extends VuexModule {
+  list: SpecData[] = [
     {
       id: 1,
       key: 'タイトル',
@@ -59,5 +68,5 @@ export const state = () => ({
       key: 'DirectX',
       value: '9.0c 以降',
     },
-  ],
-})
+  ]
+}

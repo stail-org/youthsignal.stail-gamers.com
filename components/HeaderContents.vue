@@ -38,67 +38,62 @@
   </header>
 </template>
 
-<script>
+<script lang="ts">
+import { Component, Vue } from 'nuxt-property-decorator'
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
 
-export default {
-  name: 'HeaderContents',
-  data() {
+@Component
+export default class HeaderContents extends Vue {
+  scrollClickCount: number = 0
+  navigations = [
+    {
+      id: 'overviewArea',
+      text: 'TOP',
+    },
+    {
+      id: 'introductionArea',
+      text: 'INTRODUCTION',
+    },
+    {
+      id: 'storyArea',
+      text: 'THEMA&STORY',
+    },
+    {
+      id: 'characterArea',
+      text: 'CHARACTER',
+    },
+    {
+      id: 'imagesArea',
+      text: 'IMAGES',
+    },
+    {
+      id: 'staffArea',
+      text: 'STAFF&SPEC',
+    },
+  ]
+
+  get faExternalLinkAlt() {
+    return faExternalLinkAlt
+  }
+
+  scrollOpt(id) {
     return {
-      scrollClickCount: 0,
-      navigations: [
-        {
-          id: 'overviewArea',
-          text: 'TOP',
-        },
-        {
-          id: 'introductionArea',
-          text: 'INTRODUCTION',
-        },
-        {
-          id: 'storyArea',
-          text: 'THEMA&STORY',
-        },
-        {
-          id: 'characterArea',
-          text: 'CHARACTER',
-        },
-        {
-          id: 'imagesArea',
-          text: 'IMAGES',
-        },
-        {
-          id: 'staffArea',
-          text: 'STAFF&SPEC',
-        },
-      ],
+      el: `#${id}`,
+      duration: 700,
+      easing: [0, 0, 0.1, 1],
+      offset: -100,
+      force: true,
+      cancelable: false,
+      onStart: () => {
+        this.scrollClickCount++
+        if (this.scrollClickCount > 1)
+          alert('どこの組織の者だ？\n……君、デバッガーの素質あるね？')
+      },
+      onDone: () => {
+        this.scrollClickCount--
+      },
     }
-  },
-  computed: {
-    faExternalLinkAlt() {
-      return faExternalLinkAlt
-    },
-  },
-  methods: {
-    scrollOpt(id) {
-      return {
-        el: `#${id}`,
-        duration: 700,
-        easing: [0, 0, 0.1, 1],
-        offset: -100,
-        force: true,
-        cancelable: false,
-        onStart: () => {
-          this.scrollClickCount++
-          if (this.scrollClickCount > 1)
-            alert('どこの組織の者だ？\n……君、デバッガーの素質あるね？')
-        },
-        onDone: () => {
-          this.scrollClickCount--
-        },
-      }
-    },
-  },
+  }
 }
 </script>
 

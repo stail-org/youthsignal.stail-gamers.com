@@ -73,27 +73,26 @@
   </section>
 </template>
 
-<script>
-export default {
-  name: 'IntroductionArea',
-  data() {
-    return {
-      width: window.innerWidth,
-      height: window.innerHeight,
-    }
-  },
+<script lang="ts">
+import { Component, Vue } from 'nuxt-property-decorator'
+
+@Component
+export default class IntroductionArea extends Vue {
+  width: number = window.innerWidth
+  height: number = window.innerHeight
+
   mounted() {
     window.addEventListener('resize', this.handleResize)
-  },
+  }
+
   beforeDestroy() {
     window.removeEventListener('resize', this.handleResize)
-  },
-  methods: {
-    handleResize() {
-      this.width = window.innerWidth
-      this.height = window.innerHeight
-    },
-  },
+  }
+
+  handleResize() {
+    this.width = window.innerWidth
+    this.height = window.innerHeight
+  }
 }
 </script>
 

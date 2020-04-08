@@ -4,10 +4,11 @@
   </footer>
 </template>
 
-<script>
-export default {
-  name: 'FooterContents',
-}
+<script lang="ts">
+import { Component, Vue } from 'nuxt-property-decorator'
+
+@Component
+export default class FooterContents extends Vue {}
 </script>
 
 <style scoped lang="scss">

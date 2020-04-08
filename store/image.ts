@@ -1,9 +1,18 @@
-export const state = () => ({
-  largeImage: {
+import { Module, VuexModule } from 'vuex-module-decorators'
+
+export interface ImageData {
+  title: string
+  fileName: string
+}
+
+@Module({ stateFactory: true, namespaced: true, name: 'image' })
+export default class Image extends VuexModule {
+  largeImage: ImageData = {
     title: 'YouthSignal 教室',
     fileName: 'image-1.jpg',
-  },
-  smallImages: [
+  }
+
+  smallImages: ImageData[] = [
     {
       title: 'YouthSignal 校門',
       fileName: 'image-2.jpg',
@@ -20,5 +29,5 @@ export const state = () => ({
       title: 'YouthSignal 教室',
       fileName: 'image-5.jpg',
     },
-  ],
-})
+  ]
+}

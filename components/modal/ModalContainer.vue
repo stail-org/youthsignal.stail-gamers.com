@@ -1,7 +1,7 @@
 <template>
   <transition name="fade">
     <div
-      v-show="$store.state.modal.visible"
+      v-show="visible"
       id="modalOuter"
       class="ModalContainer position-absolute"
     >
@@ -27,8 +27,8 @@
           >
             ×
           </button>
-          <InfomationSlide v-show="$store.state.modal.mode === 'infomation'" />
-          <ImageSlide v-show="$store.state.modal.mode === 'image'" />
+          <InfomationSlide v-show="mode === 'infomation'" />
+          <ImageSlide v-show="mode === 'image'" />
         </div>
       </div>
       <div tabindex="0"></div>
@@ -37,17 +37,31 @@
   </transition>
 </template>
 
-<script>
+<script lang="ts">
+import { Component, Vue } from 'nuxt-property-decorator'
+import { modalStore } from '~/store'
+
 import InfomationSlide from '~/components/modal/contents/InfomationSlide.vue'
 import ImageSlide from '~/components/modal/contents/ImageSlide.vue'
 
-export default {
-  components: { InfomationSlide, ImageSlide },
-  methods: {
-    closeModal() {
-      this.$store.commit('modal/hide')
-    },
+@Component({
+  components: {
+    InfomationSlide,
+    ImageSlide,
   },
+})
+export default class ModalContainer extends Vue {
+  get visible() {
+    return modalStore.visible
+  }
+
+  get mode() {
+    return modalStore.mode
+  }
+
+  closeModal() {
+    modalStore.hide()
+  }
 }
 </script>
 

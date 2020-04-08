@@ -15,7 +15,7 @@
         </h2>
         <div class="OverviewArea__Info__List text-left">
           <div
-            v-for="info in $store.state.infomation.list"
+            v-for="info in infomationList"
             :key="info.id"
             class="OverviewArea__Info__List__Item Info"
           >
@@ -25,16 +25,10 @@
               <a
                 v-if="info.type === 'modal'"
                 class="red always-underline"
-                @click="
-                  $store.commit('modal/show', {
-                    mode: 'infomation',
-                    showTarget: $store.getters['infomation/getSlideNumber'](
-                      info.id
-                    ),
-                  })
-                "
-                >{{ info.title }}</a
+                @click="showModal('infomation', getSlideNumber(info.id))"
               >
+                {{ info.title }}
+              </a>
             </p>
           </div>
         </div>
@@ -66,28 +60,42 @@
   </section>
 </template>
 
-<script>
-export default {
-  name: 'OverviewArea',
-  data() {
-    return {
-      width: window.innerWidth,
-      height: window.innerHeight,
+<script lang="ts">
+import { Component, Vue } from 'nuxt-property-decorator'
+import { informationStore, modalStore } from '~/store'
+
+@Component
+export default class OverviewArea extends Vue {
+  width: number = window.innerWidth
+  height: number = window.innerHeight
+
+  get infomationList() {
+    return informationStore.list
+  }
+
+  get getSlideNumber() {
+    return (id: number) => {
+      return informationStore.getSlideNumber(id)
     }
-  },
+  }
+
   mounted() {
     window.addEventListener('resize', this.handleResize)
-  },
+  }
+
   beforeDestroy() {
     window.removeEventListener('resize', this.handleResize)
-  },
-  methods: {
-    handleResize() {
-      // resizeのたびにこいつが発火するので、ここでやりたいことをやる
-      this.width = window.innerWidth
-      this.height = window.innerHeight
-    },
-  },
+  }
+
+  handleResize() {
+    // resizeのたびにこいつが発火するので、ここでやりたいことをやる
+    this.width = window.innerWidth
+    this.height = window.innerHeight
+  }
+
+  showModal(mode: 'infomation' | 'image', showTarget: number) {
+    modalStore.show({ mode, showTarget })
+  }
 }
 </script>
 

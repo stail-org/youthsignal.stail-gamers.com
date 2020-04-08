@@ -37,16 +37,15 @@
   </section>
 </template>
 
-<script>
-import { mapState } from 'vuex'
+<script lang="ts">
+import { Component, Vue } from 'nuxt-property-decorator'
+import { specStore } from '~/store'
 
-export default {
-  name: 'SpecArea',
-  computed: {
-    ...mapState('spec', {
-      specs: 'list',
-    }),
-  },
+@Component
+export default class SpecArea extends Vue {
+  get specs() {
+    return specStore.list
+  }
 }
 </script>
 

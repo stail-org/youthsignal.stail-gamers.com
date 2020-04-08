@@ -15,16 +15,14 @@
   </transition>
 </template>
 
-<script>
+<script lang="ts">
+import { Component, Vue } from 'nuxt-property-decorator'
 import imagesloaded from 'imagesloaded'
 
-export default {
-  name: 'Foreground',
-  data() {
-    return {
-      isLoading: true,
-    }
-  },
+@Component
+export default class Loading extends Vue {
+  isLoading: boolean = true
+
   mounted() {
     const self = this
 
@@ -42,7 +40,7 @@ export default {
         self.isLoading = false
       }
     )
-  },
+  }
 }
 </script>
 
