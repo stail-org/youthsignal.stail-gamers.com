@@ -1,5 +1,6 @@
 <template>
   <div id="mainContents">
+    <part-trial-link />
     <OverviewArea />
     <IntroductionArea />
     <StoryArea />
@@ -13,6 +14,7 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 
+import PartTrialLink from '@/components/parts/TrialLink.vue'
 import OverviewArea from '@/components/main-contents/OverviewArea.vue'
 import IntroductionArea from '@/components/main-contents/IntroductionArea.vue'
 import StoryArea from '@/components/main-contents/StoryArea.vue'
@@ -23,6 +25,7 @@ import SpecArea from '@/components/main-contents/SpecArea.vue'
 
 @Component({
   components: {
+    PartTrialLink,
     OverviewArea,
     IntroductionArea,
     StoryArea,
