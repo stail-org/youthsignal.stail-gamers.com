@@ -1,5 +1,5 @@
 <template>
-  <div id="mainContents">
+  <div id="mainContents" class="pb-5">
     <OverviewArea />
     <IntroductionArea />
     <StoryArea />

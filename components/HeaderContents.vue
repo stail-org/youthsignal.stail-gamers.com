@@ -1,6 +1,9 @@
 <template>
-  <header class="Header position-sticky w-100 overflow-hidden">
-    <h1 class="Header__Title position-absolute m-0">
+  <header
+    class="Header position-sticky w-100 overflow-hidden"
+    :class="{ 'Header--NotTop': !isTopPage }"
+  >
+    <h1 class="Header__Title position-absolute m-0" @click="navigateToTopPage">
       <img
         class="Header__Title__Img"
         src="~/assets/images/youthsignal-header.png"
@@ -76,6 +79,10 @@ export default class HeaderContents extends Vue {
     return faExternalLinkAlt
   }
 
+  get isTopPage() {
+    return this.$route.name === 'index'
+  }
+
   scrollOpt(id) {
     return {
       el: `#${id}`,
@@ -93,6 +100,10 @@ export default class HeaderContents extends Vue {
         this.scrollClickCount--
       },
     }
+  }
+
+  navigateToTopPage() {
+    if (!this.isTopPage) this.$router.push('/')
   }
 }
 </script>
@@ -145,6 +156,25 @@ export default class HeaderContents extends Vue {
       animation-duration: 3s;
       animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
       animation-iteration-count: infinite;
+    }
+  }
+
+  // Top Page 以外
+  &--NotTop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .Header {
+      &__Title {
+        right: auto;
+        cursor: pointer;
+        @media (max-width: $--lg) {
+          display: inline;
+        }
+      }
+      &__Nav {
+        display: none;
+      }
     }
   }
 }
