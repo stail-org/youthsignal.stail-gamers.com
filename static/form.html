@@ -1,0 +1,97 @@
+<html>
+  <body>
+    <form name="contact" netlify class="RecruitForm" method="POST">
+      <input type="hidden" name="form-name" value="contact" />
+      <div id="input-group-name" role="group" class="form-group">
+        <label
+          id="input-group-name__BV_label_"
+          for="input-name"
+          class="d-block"
+        >
+          お名前：
+        </label>
+        <div class="bv-no-focus-ring">
+          <input
+            id="input-name"
+            name="name"
+            type="text"
+            placeholder="名前（ハンドルネーム可）"
+            required="required"
+            aria-required="true"
+            class="form-control"
+          />
+        </div>
+      </div>
+      <div id="input-group-email" role="group" class="form-group">
+        <label
+          id="input-group-email__BV_label_"
+          for="input-email"
+          class="d-block"
+          >メールアドレス：</label
+        >
+        <div class="bv-no-focus-ring">
+          <input
+            id="input-email"
+            name="email"
+            type="email"
+            placeholder="メールアドレス"
+            required="required"
+            aria-required="true"
+            class="form-control"
+            aria-describedby="input-group-email__BV_description_"
+          />
+          <small
+            tabindex="-1"
+            id="input-group-email__BV_description_"
+            class="form-text text-muted"
+          >
+            ご入力いただいたメールアドレスは、STail
+            から応募者様への連絡用途のみに使用します。
+          </small>
+        </div>
+      </div>
+      <div id="input-group-answer-reason" role="group" class="form-group">
+        <label
+          id="input-group-answer-reason__BV_label_"
+          for="input-answer-reason"
+          class="d-block"
+          >応募理由：</label
+        >
+        <div class="bv-no-focus-ring">
+          <textarea
+            id="input-answer-reason"
+            name="answer-reason"
+            required="required"
+            rows="8"
+            wrap="soft"
+            aria-required="true"
+            class="form-control"
+          ></textarea>
+        </div>
+      </div>
+      <div id="input-group-answer-ambition" role="group" class="form-group">
+        <label
+          id="input-group-answer-ambition__BV_label_"
+          for="input-answer-ambition"
+          class="d-block"
+        >
+          出来ること、やってみたいこと：
+        </label>
+        <div class="bv-no-focus-ring">
+          <textarea
+            id="input-answer-ambition"
+            name="answer-ambition"
+            required="required"
+            rows="12"
+            wrap="soft"
+            aria-required="true"
+            class="form-control"
+          ></textarea>
+        </div>
+      </div>
+      <button type="submit" class="btn RecruitForm__Submit btn-primary">
+        送信
+      </button>
+    </form>
+  </body>
+</html>
