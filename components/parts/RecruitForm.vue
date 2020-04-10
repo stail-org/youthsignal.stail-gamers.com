@@ -80,6 +80,11 @@ export default class RecruitForm extends Vue {
 </script>
 
 <style lang="scss" scoped>
+input,
+textarea {
+  background-color: $color-lighter;
+}
+
 .RecruitForm {
   &__Submit {
     display: block;
