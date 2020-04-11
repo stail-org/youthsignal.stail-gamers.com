@@ -18,11 +18,19 @@
           class="Header__Nav__Item text-center"
         >
           <nuxt-link
+            v-if="nav.type === 'scroll'"
             v-scroll-to="scrollOpt(nav.id)"
             class="white without-underline"
             to
           >
-            {{ nav.text }}
+            {{ nav.title }}
+          </nuxt-link>
+          <nuxt-link
+            v-else-if="nav.type === 'router-link'"
+            class="white without-underline"
+            :to="nav.id"
+          >
+            {{ nav.title }}
           </nuxt-link>
         </b-col>
       </b-row>
@@ -45,33 +53,50 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
 
+interface NavigationItem {
+  id: string
+  title: string
+  type: 'scroll' | 'router-link' | 'link'
+}
+
 @Component
 export default class HeaderContents extends Vue {
   scrollClickCount: number = 0
   navigations = [
     {
       id: 'overviewArea',
-      text: 'TOP',
+      title: 'TOP',
+      type: 'scroll',
     },
     {
       id: 'introductionArea',
-      text: 'INTRODUCTION',
+      title: 'INTRODUCTION',
+      type: 'scroll',
     },
     {
       id: 'storyArea',
-      text: 'THEMA&STORY',
+      title: 'THEMA&STORY',
+      type: 'scroll',
     },
     {
       id: 'characterArea',
-      text: 'CHARACTER',
+      title: 'CHARACTER',
+      type: 'scroll',
     },
     {
       id: 'imagesArea',
-      text: 'IMAGES',
+      title: 'IMAGES',
+      type: 'scroll',
     },
     {
       id: 'staffArea',
-      text: 'STAFF&SPEC',
+      title: 'STAFF&SPEC',
+      type: 'scroll',
+    },
+    {
+      id: 'recruit',
+      title: 'RECRUIT',
+      type: 'router-link',
     },
   ]
 
