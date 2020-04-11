@@ -1,6 +1,9 @@
 <template>
-  <header class="Header position-sticky w-100 overflow-hidden">
-    <h1 class="Header__Title position-absolute m-0">
+  <header
+    class="Header position-sticky w-100 overflow-hidden"
+    :class="{ 'Header--NotTop': !isTopPage }"
+  >
+    <h1 class="Header__Title position-absolute m-0" @click="navigateToTopPage">
       <img
         class="Header__Title__Img"
         src="~/assets/images/youthsignal-header.png"
@@ -15,11 +18,19 @@
           class="Header__Nav__Item text-center"
         >
           <nuxt-link
+            v-if="nav.type === 'scroll'"
             v-scroll-to="scrollOpt(nav.id)"
             class="white without-underline"
             to
           >
-            {{ nav.text }}
+            {{ nav.title }}
+          </nuxt-link>
+          <nuxt-link
+            v-else-if="nav.type === 'router-link'"
+            class="white without-underline"
+            :to="nav.id"
+          >
+            {{ nav.title }}
           </nuxt-link>
         </b-col>
       </b-row>
@@ -30,35 +41,56 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 
+interface NavigationItem {
+  id: string
+  title: string
+  type: 'scroll' | 'router-link' | 'link'
+}
+
 @Component
 export default class HeaderContents extends Vue {
   scrollClickCount: number = 0
   navigations = [
     {
       id: 'overviewArea',
-      text: 'TOP',
+      title: 'TOP',
+      type: 'scroll',
     },
     {
       id: 'introductionArea',
-      text: 'INTRODUCTION',
+      title: 'INTRODUCTION',
+      type: 'scroll',
     },
     {
       id: 'storyArea',
-      text: 'THEMA&STORY',
+      title: 'THEMA&STORY',
+      type: 'scroll',
     },
     {
       id: 'characterArea',
-      text: 'CHARACTER',
+      title: 'CHARACTER',
+      type: 'scroll',
     },
     {
       id: 'imagesArea',
-      text: 'IMAGES',
+      title: 'IMAGES',
+      type: 'scroll',
     },
     {
       id: 'staffArea',
-      text: 'STAFF&SPEC',
+      title: 'STAFF&SPEC',
+      type: 'scroll',
+    },
+    {
+      id: 'recruit',
+      title: 'RECRUIT',
+      type: 'router-link',
     },
   ]
+
+  get isTopPage() {
+    return this.$route.name === 'index'
+  }
 
   scrollOpt(id) {
     return {
@@ -77,6 +109,10 @@ export default class HeaderContents extends Vue {
         this.scrollClickCount--
       },
     }
+  }
+
+  navigateToTopPage() {
+    if (!this.isTopPage) this.$router.push('/')
   }
 }
 </script>
@@ -110,6 +146,24 @@ export default class HeaderContents extends Vue {
       overflow-x: auto;
       @media (max-width: $--sm) {
         width: 100%;
+      }
+    }
+  }
+  // Top Page 以外
+  &--NotTop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .Header {
+      &__Title {
+        right: auto;
+        cursor: pointer;
+        @media (max-width: $--lg) {
+          display: inline;
+        }
+      }
+      &__Nav {
+        display: none;
       }
     }
   }
