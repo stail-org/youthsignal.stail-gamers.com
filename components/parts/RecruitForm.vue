@@ -1,6 +1,12 @@
 @ -0,0 +1,100 @@
 <template>
-  <b-form name="contact" class="RecruitForm" netlify method="POST">
+  <b-form
+    name="contact"
+    class="RecruitForm"
+    netlify
+    method="POST"
+    action="/recruit-success"
+  >
     <input type="hidden" name="form-name" value="contact" />
 
     <b-form-group id="input-group-name" label="お名前：" label-for="input-name">

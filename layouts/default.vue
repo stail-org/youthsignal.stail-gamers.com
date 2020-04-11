@@ -1,8 +1,8 @@
 <template>
   <div id="App">
-    <HeaderContents />
+    <HeaderContents v-if="visibleHeader" />
     <nuxt />
-    <FooterContents />
+    <FooterContents v-if="visibleHeader" />
   </div>
 </template>
 
@@ -18,5 +18,11 @@ import FooterContents from '@/components/FooterContents.vue'
     FooterContents,
   },
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  routeOfUnnecessaryHeader = ['recruit-success']
+
+  get visibleHeader() {
+    return !this.routeOfUnnecessaryHeader.includes(this.$route.name || '')
+  }
+}
 </script>
