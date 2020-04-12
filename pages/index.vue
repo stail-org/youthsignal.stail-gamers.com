@@ -9,18 +9,35 @@
   </main>
 </template>
 
-<script>
-import Loading from '@/components/Loading.vue'
-import ModalContainer from '@/components/modal/ModalContainer.vue'
-import Foreground from '@/components/Foreground.vue'
-import MainContents from '@/components/MainContents.vue'
+<script lang="ts">
+import { Component, Vue } from 'nuxt-property-decorator'
 
-export default {
+import Loading from '~/components/Loading.vue'
+import ModalContainer from '~/components/modal/ModalContainer.vue'
+import Foreground from '~/components/Foreground.vue'
+import MainContents from '~/components/MainContents.vue'
+
+import { viewStore } from '~/store'
+
+@Component({
   components: {
     Loading,
     ModalContainer,
     Foreground,
     MainContents,
   },
+})
+export default class Index extends Vue {
+  created() {
+    viewStore.setWindowSize({ width: innerWidth, height: innerHeight })
+    window.addEventListener('resize', () => {
+      const { innerWidth, innerHeight } = window
+      viewStore.setWindowSize({ width: innerWidth, height: innerHeight })
+    })
+  }
+
+  beforeDestroy() {
+    window.removeEventListener('resize', () => {})
+  }
 }
 </script>
