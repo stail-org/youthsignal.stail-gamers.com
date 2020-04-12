@@ -3,15 +3,8 @@
     <div class="IntroductionArea__Container compact-container">
       <h2 class="IntroductionArea__Title">
         <img
-          v-if="width > 768"
           class="IntroductionArea__Title__Img"
-          src="~/assets/images/introduction-area/introduction-title.png"
-          alt="YouthSignal Introduction"
-        />
-        <img
-          v-else
-          class="IntroductionArea__Title__Img"
-          src="~/assets/images/introduction-area/introduction-title-sp.png"
+          :src="titleImgSrc"
           alt="YouthSignal Introduction"
         />
       </h2>
@@ -76,22 +69,16 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 
+import { viewStore } from '~/store'
+
 @Component
 export default class IntroductionArea extends Vue {
-  width: number = window.innerWidth
-  height: number = window.innerHeight
-
-  mounted() {
-    window.addEventListener('resize', this.handleResize)
-  }
-
-  beforeDestroy() {
-    window.removeEventListener('resize', this.handleResize)
-  }
-
-  handleResize() {
-    this.width = window.innerWidth
-    this.height = window.innerHeight
+  get titleImgSrc() {
+    const fileName =
+      viewStore.windowSize.width > 768
+        ? 'introduction-title'
+        : 'introduction-title-sp'
+    return require(`~/assets/images/introduction-area/${fileName}.png`)
   }
 }
 </script>

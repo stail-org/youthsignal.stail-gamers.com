@@ -36,15 +36,8 @@
       <b-col class="OverviewArea__Contents OverviewArea__Movie">
         <h2 class="OverviewArea__Contents__Title">
           <img
-            v-if="width > 768"
             class="width-100 responsive"
-            src="~assets/images/overview-area/overview-movie-title.png"
-            alt="YouthSignal Movies"
-          />
-          <img
-            v-else
-            class="width-100 responsive"
-            src="~assets/images/overview-area/overview-movie-title-sp.png"
+            :src="titleImgSrc"
             alt="YouthSignal Movies"
           />
         </h2>
@@ -62,13 +55,10 @@
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
-import { informationStore, modalStore } from '~/store'
+import { informationStore, modalStore, viewStore } from '~/store'
 
 @Component
 export default class OverviewArea extends Vue {
-  width: number = window.innerWidth
-  height: number = window.innerHeight
-
   get informationList() {
     return informationStore.list
   }
@@ -79,18 +69,12 @@ export default class OverviewArea extends Vue {
     }
   }
 
-  mounted() {
-    window.addEventListener('resize', this.handleResize)
-  }
-
-  beforeDestroy() {
-    window.removeEventListener('resize', this.handleResize)
-  }
-
-  handleResize() {
-    // resizeのたびにこいつが発火するので、ここでやりたいことをやる
-    this.width = window.innerWidth
-    this.height = window.innerHeight
+  get titleImgSrc() {
+    const fileName =
+      viewStore.windowSize.width > 768
+        ? 'overview-movie-title'
+        : 'overview-movie-title-sp'
+    return require(`~/assets/images/overview-area/${fileName}.png`)
   }
 
   showModal(mode: 'information' | 'image', showTarget: number) {
