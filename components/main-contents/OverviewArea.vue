@@ -10,12 +10,12 @@
           <img
             class="width-100 responsive"
             src="~/assets/images/overview-area/overview-info-title.png"
-            alt="YouthSignal Infomations"
+            alt="YouthSignal Informations"
           />
         </h2>
         <div class="OverviewArea__Info__List text-left">
           <div
-            v-for="info in infomationList"
+            v-for="info in informationList"
             :key="info.id"
             class="OverviewArea__Info__List__Item Info"
           >
@@ -25,7 +25,7 @@
               <a
                 v-if="info.type === 'modal'"
                 class="red always-underline"
-                @click="showModal('infomation', getSlideNumber(info.id))"
+                @click="showModal('information', getSlideNumber(info.id))"
               >
                 {{ info.title }}
               </a>
@@ -69,7 +69,7 @@ export default class OverviewArea extends Vue {
   width: number = window.innerWidth
   height: number = window.innerHeight
 
-  get infomationList() {
+  get informationList() {
     return informationStore.list
   }
 
@@ -93,7 +93,7 @@ export default class OverviewArea extends Vue {
     this.height = window.innerHeight
   }
 
-  showModal(mode: 'infomation' | 'image', showTarget: number) {
+  showModal(mode: 'information' | 'image', showTarget: number) {
     modalStore.show({ mode, showTarget })
   }
 }

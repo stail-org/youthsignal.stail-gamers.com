@@ -3,15 +3,15 @@ import { Module, VuexModule, Mutation } from 'vuex-module-decorators'
 @Module({ stateFactory: true, namespaced: true, name: 'modal' })
 export default class Modal extends VuexModule {
   visible: boolean = false
-  mode: 'infomation' | 'image' | 'none' = 'none'
+  mode: 'information' | 'image' | 'none' = 'none'
 
   /**
    * モーダルウィンドウの表示処理
-   * @param payload.mode 表示するモーダルウィンドウの種類（infomation / image）
+   * @param payload.mode 表示するモーダルウィンドウの種類（information / image）
    * @param payload.showTarget 表示するスライド番号
    */
   @Mutation
-  show(payload: { mode: 'infomation' | 'image'; showTarget: number }) {
+  show(payload: { mode: 'information' | 'image'; showTarget: number }) {
     const { mode, showTarget } = payload
     this.mode = mode
     const modeCastToCamelCase = mode[0].toUpperCase() + mode.slice(1)
