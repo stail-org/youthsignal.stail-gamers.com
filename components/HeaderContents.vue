@@ -100,14 +100,6 @@ export default class HeaderContents extends Vue {
       offset: -100,
       force: true,
       cancelable: false,
-      onStart: () => {
-        this.scrollClickCount++
-        if (this.scrollClickCount > 1)
-          alert('どこの組織の者だ？\n……君、デバッガーの素質あるね？')
-      },
-      onDone: () => {
-        this.scrollClickCount--
-      },
     }
   }
 
