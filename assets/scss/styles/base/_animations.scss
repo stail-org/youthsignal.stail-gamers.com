@@ -9,17 +9,6 @@
   opacity: 0;
 }
 
-// 明滅
-
-@keyframes flicker {
-  0% {
-    opacity: 0.2;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 // ぴょんぴょんバウンド
 
 @keyframes bounce {

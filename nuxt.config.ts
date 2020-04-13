@@ -56,6 +56,7 @@ const config: Configuration = {
     ],
   },
   loading: { color: '#fff' },
+  loadingIndicator: 'loading.html',
   css: ['~/assets/scss/styles/main.scss'],
   plugins: [
     { src: '~/plugins/ga.js', ssr: false },

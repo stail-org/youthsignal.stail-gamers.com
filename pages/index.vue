@@ -1,6 +1,5 @@
 <template>
   <main id="main">
-    <Loading />
     <ModalContainer />
     <article>
       <Foreground />
@@ -12,7 +11,6 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 
-import Loading from '~/components/Loading.vue'
 import ModalContainer from '~/components/modal/ModalContainer.vue'
 import Foreground from '~/components/Foreground.vue'
 import MainContents from '~/components/MainContents.vue'
@@ -21,7 +19,6 @@ import { viewStore } from '~/store'
 
 @Component({
   components: {
-    Loading,
     ModalContainer,
     Foreground,
     MainContents,
