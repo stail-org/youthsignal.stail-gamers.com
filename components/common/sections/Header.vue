@@ -48,7 +48,7 @@ interface NavigationItem {
 }
 
 @Component
-export default class HeaderContents extends Vue {
+export default class Header extends Vue {
   scrollClickCount: number = 0
   navigations = [
     {

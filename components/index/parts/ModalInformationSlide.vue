@@ -44,7 +44,7 @@ import 'swiper/css/swiper.css'
     SwiperSlide,
   },
 })
-export default class InformationSlide extends Vue {
+export default class ModalInformationSlide extends Vue {
   swiperOption = {
     slidesPerView: 1,
     spaceBetween: 0,
