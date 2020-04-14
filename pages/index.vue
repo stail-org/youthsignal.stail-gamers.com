@@ -11,9 +11,9 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 
-import ModalContainer from '~/components/modal/ModalContainer.vue'
-import Foreground from '~/components/Foreground.vue'
-import MainContents from '~/components/MainContents.vue'
+import ModalContainer from '~/components/index/parts/ModalContainer.vue'
+import Foreground from '~/components/index/sections/Foreground.vue'
+import MainContents from '~/components/index/sections/MainContents.vue'
 
 import { viewStore } from '~/store'
 

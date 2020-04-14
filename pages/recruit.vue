@@ -57,8 +57,8 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 
-import RecruitForm from '~/components/parts/RecruitForm.vue'
-import Head2 from '~/components/parts/Head2.vue'
+import RecruitForm from '~/components/recruit/parts/RecruitForm.vue'
+import Head2 from '~/components/common/parts/Head2.vue'
 
 @Component({
   components: {

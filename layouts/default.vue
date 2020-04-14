@@ -1,21 +1,21 @@
 <template>
   <div id="App">
-    <HeaderContents v-if="visibleHeader" />
+    <header-content v-if="visibleHeader" />
     <nuxt />
-    <FooterContents v-if="visibleHeader" />
+    <footer-content v-if="visibleHeader" />
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 
-import HeaderContents from '@/components/HeaderContents.vue'
-import FooterContents from '@/components/FooterContents.vue'
+import FooterContent from '~/components/common/sections/Footer.vue'
+import HeaderContent from '~/components/common/sections/Header.vue'
 
 @Component({
   components: {
-    HeaderContents,
-    FooterContents,
+    HeaderContent,
+    FooterContent,
   },
 })
 export default class App extends Vue {

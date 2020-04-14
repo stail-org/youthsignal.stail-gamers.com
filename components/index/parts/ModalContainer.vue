@@ -41,8 +41,8 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 import { modalStore } from '~/store'
 
-import InformationSlide from '~/components/modal/contents/InformationSlide.vue'
-import ImageSlide from '~/components/modal/contents/ImageSlide.vue'
+import InformationSlide from '~/components/index/parts/ModalInformationSlide.vue'
+import ImageSlide from '~/components/index/parts/ModalImageSlide.vue'
 
 @Component({
   components: {
