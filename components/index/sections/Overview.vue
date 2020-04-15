@@ -27,6 +27,13 @@
               </a>
             </p>
           </div>
+          <nuxt-link to="/recruit" class="RecruitBanner">
+            <img
+              class="RecruitBanner__Img"
+              src="~/assets/images/overview-area/informations/recruit-banner.jpg"
+              alt="リクルートページはこちら"
+            />
+          </nuxt-link>
         </div>
       </div>
       <div class="OverviewArea__Movie">
@@ -115,6 +122,12 @@ $grid-breakpoint: ($--md - 16px) / 2;
               margin-left: 10px;
             }
           }
+        }
+      }
+      .RecruitBanner {
+        &__Img {
+          width: 100%;
+          margin-top: 2rem;
         }
       }
     }
