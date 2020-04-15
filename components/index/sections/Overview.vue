@@ -1,12 +1,8 @@
 <template>
   <section id="overviewArea" class="OverviewArea area-section m-0">
-    <b-row
-      class="OverviewArea__Wrapper compact-container w-100 py-3"
-      cols="1"
-      cols-md="2"
-    >
-      <b-col class="OverviewArea__Contents OverviewArea__Info">
-        <h2 class="OverviewArea__Contents__Title">
+    <div class="OverviewArea__Wrapper compact-container w-100 py-3">
+      <div class="OverviewArea__Info">
+        <h2 class="OverviewArea__Info__Title">
           <img
             class="width-100 responsive"
             src="~/assets/images/overview-area/overview-info-title.png"
@@ -32,24 +28,22 @@
             </p>
           </div>
         </div>
-      </b-col>
-      <b-col class="OverviewArea__Contents OverviewArea__Movie">
-        <h2 class="OverviewArea__Contents__Title">
+      </div>
+      <div class="OverviewArea__Movie">
+        <h2 class="OverviewArea__Movie__Title">
           <img
             class="width-100 responsive"
             :src="titleImgSrc"
             alt="YouthSignal Movies"
           />
         </h2>
-        <div class="OverviewArea__Movie__Content">
-          <video
-            class="OverviewArea__Movie__Content__Item"
-            src="~/assets/images/overview-area/movies/c96-promotion-video.mp4"
-            controls
-          ></video>
-        </div>
-      </b-col>
-    </b-row>
+        <video
+          class="OverviewArea__Movie__Item"
+          src="~/assets/images/overview-area/movies/c96-promotion-video.mp4"
+          controls
+        ></video>
+      </div>
+    </div>
   </section>
 </template>
 
@@ -71,7 +65,7 @@ export default class OverviewArea extends Vue {
 
   get titleImgSrc() {
     const fileName =
-      viewStore.windowSize.width > 768
+      viewStore.windowSize.width > 992
         ? 'overview-movie-title'
         : 'overview-movie-title-sp'
     return require(`~/assets/images/overview-area/${fileName}.png`)
@@ -84,68 +78,57 @@ export default class OverviewArea extends Vue {
 </script>
 
 <style scoped lang="scss">
+// スクロールバーが約 16 px
+$grid-breakpoint: ($--md - 16px) / 2;
+
 .OverviewArea {
   padding-top: 65%;
   background: url('~assets/images/youthsignal-keyvisual.jpg') no-repeat;
   background-size: 100%;
   &__Wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax($grid-breakpoint, 1fr));
+    justify-items: center;
     background: rgba(black, 0.7);
-  }
-
-  &__Contents {
-    width: 50%;
-    text-align: center;
-    @media (max-width: $--sm) {
-      width: 100%;
-    }
-    &__Title {
-      padding: 0 10%;
-      margin-bottom: 1rem;
-      @media (max-width: $--sm) {
-        padding: 0 10px;
-      }
+    @media (max-width: $--md) {
+      gap: 2rem;
     }
   }
 
   &__Info {
+    width: 95%;
+    &__Title {
+      margin-bottom: 1rem;
+    }
     &__List {
-      height: 22vw;
-      padding: 0 10% 0 13%;
+      padding-right: 3%;
+      padding-left: 3%;
       overflow-y: scroll;
-      @media (max-width: $--sm) {
-        height: 190px;
-        padding: 0 10px 0 40px;
-      }
       &__Item {
         margin-bottom: 5px;
         font-size: 0.85rem;
         border-bottom: 2px solid #585858;
+        .Info {
+          &__Text {
+            margin: 0;
+            &--Title {
+              margin-left: 10px;
+            }
+          }
+        }
       }
     }
   }
 
   &__Movie {
-    @media (max-width: $--sm) {
-      margin-top: 2rem;
+    width: 95%;
+    text-align: center;
+    &__Title {
+      margin-bottom: 1rem;
     }
-    &__Content {
-      @media (max-width: $--sm) {
-        margin-top: 1rem;
-      }
-      &__Item {
-        width: 80%;
-        @media (max-width: $--sm) {
-          width: 95%;
-        }
-      }
-    }
-  }
-}
-.Info {
-  &__Text {
-    margin: 0;
-    &--Title {
-      margin-left: 10px;
+    &__Item {
+      width: 95%;
+      margin: auto;
     }
   }
 }
