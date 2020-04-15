@@ -3,6 +3,28 @@
     class="Header position-sticky w-100 overflow-hidden"
     :class="{ 'Header--NotTop': !isTopPage }"
   >
+    <nuxt-link
+      v-if="!isTopPage"
+      class="Header__BackToTop position-absolute"
+      to="/"
+    >
+      <svg
+        class="Header__BackToTop__Icon"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M3 11.8721V12.1279C3 12.9621 3.34735 13.7586 3.95865 14.3262L9.55669 19.5244C10.3767 20.2858 11.652 20.2622 12.4432 19.471C13.2556 18.6586 13.2556 17.3414 12.4432 16.529L9.91421 14H19C20.1046 14 21 13.1046 21 12C21 10.8954 20.1046 10 19 10H9.91421L12.4432 7.47099C13.2556 6.65858 13.2556 5.34141 12.4432 4.52901C11.652 3.73779 10.3767 3.71418 9.55669 4.47557L3.95865 9.67376C3.34735 10.2414 3 11.0379 3 11.8721Z"
+          stroke="white"
+          stroke-width="2"
+        />
+      </svg>
+
+      <span class="Header__BackToTop__Text">Back to Home</span>
+    </nuxt-link>
     <h1 class="Header__Title position-absolute m-0" @click="navigateToTopPage">
       <img
         class="Header__Title__Img"
@@ -124,9 +146,6 @@ export default class Header extends Vue {
     @media (max-width: $--lg) {
       display: none;
     }
-    &__Img {
-      width: 300px;
-    }
   }
   &__Nav {
     line-height: 60px;
@@ -147,11 +166,47 @@ export default class Header extends Vue {
     align-items: center;
     justify-content: center;
     .Header {
+      &__BackToTop {
+        left: 0;
+        margin-left: 2rem;
+        text-decoration: none;
+        @media (max-width: $--xs) {
+          margin-left: 0.5rem;
+        }
+        &__Text {
+          margin-left: 0.3rem;
+          font-size: 1rem;
+          color: $--color-white;
+          vertical-align: middle;
+          @media (max-width: $--md) {
+            display: none;
+          }
+        }
+        &:hover {
+          .Header__BackToTop__Icon > path {
+            stroke: $--color-cyan;
+          }
+          .Header__BackToTop__Text {
+            color: $--color-cyan;
+          }
+        }
+      }
       &__Title {
         right: auto;
         cursor: pointer;
         @media (max-width: $--lg) {
           display: inline;
+        }
+        @media (max-width: $--xs) {
+          text-align: right;
+        }
+        &__Img {
+          position: relative;
+          top: -4px;
+          @media (max-width: $--xs) {
+            width: 80%;
+            height: 40px;
+          }
         }
       }
       &__Nav {
