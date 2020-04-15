@@ -14,7 +14,7 @@
       <head2 class="Recruit__Subtitle">業務概要</head2>
       <div class="Recruit__Item Recruit__Overview">
         <p class="Recruit__Overview__Head">
-          ディレクター 瀞昧 幹 の作業を補佐
+          ディレクターの作業を補佐
         </p>
         <p>膨大にあるディレクターの作業を一部フォローしてもらいます。</p>
         <p>
