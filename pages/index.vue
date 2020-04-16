@@ -22,7 +22,7 @@ import { Component, Vue } from 'nuxt-property-decorator'
 
 import Foreground from '~/components/index/sections/Foreground.vue'
 import SectionOverview from '~/components/index/sections/Overview.vue'
-import SectionIntroduction from '~/components/index/sections/introduction.vue'
+import SectionIntroduction from '~/components/index/sections/Introduction.vue'
 import SectionStory from '~/components/index/sections/Story.vue'
 import SectionCharacter from '~/components/index/sections/Character.vue'
 import SectionImages from '~/components/index/sections/Images.vue'
