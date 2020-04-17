@@ -44,11 +44,7 @@
             alt="YouthSignal Movies"
           />
         </h2>
-        <video
-          class="OverviewArea__Movie__Item"
-          src="~/assets/images/overview-area/movies/c96-promotion-video.mp4"
-          controls
-        ></video>
+        <youtube ref="youtube" class="w-100" video-id="Jt9_Y_e8lgg"></youtube>
       </div>
     </div>
   </section>
@@ -139,10 +135,6 @@ $grid-breakpoint: ($--md - 16px) / 2;
     text-align: center;
     &__Title {
       margin-bottom: 1rem;
-    }
-    &__Item {
-      width: 95%;
-      margin: auto;
     }
   }
 }

@@ -61,6 +61,7 @@ const config: Configuration = {
   plugins: [
     { src: '~/plugins/ga.js', ssr: false },
     '~/plugins/vue-scrollto.js',
+    '~/plugins/vue-youtube.ts',
   ],
   buildModules: [
     '@nuxtjs/eslint-module',
