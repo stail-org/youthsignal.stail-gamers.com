@@ -94,7 +94,8 @@ $grid-breakpoint: ($--md - 16px) / 2;
   background-size: 100%;
   &__Wrapper {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax($grid-breakpoint, 1fr));
+    // iPhone 5s の横幅まで対応
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     justify-items: center;
     background: rgba(black, 0.7);
     @media (max-width: $--md) {
