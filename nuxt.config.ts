@@ -60,7 +60,6 @@ const config: Configuration = {
   css: ['~/assets/scss/styles/main.scss'],
   plugins: [
     { src: '~/plugins/ga.js', ssr: false },
-    '~/plugins/particles.js',
     '~/plugins/vue-scrollto.js',
   ],
   buildModules: [

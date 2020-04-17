@@ -2,7 +2,6 @@
   <main class="Top">
     <part-modal-container />
     <article class="Top__Article">
-      <foreground />
       <div class="Top__Article__Contents pb-5">
         <part-trial-link />
         <section-overview />
@@ -20,7 +19,6 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 
-import Foreground from '~/components/index/sections/Foreground.vue'
 import SectionOverview from '~/components/index/sections/Overview.vue'
 import SectionIntroduction from '~/components/index/sections/Introduction.vue'
 import SectionStory from '~/components/index/sections/Story.vue'
@@ -37,7 +35,6 @@ import { viewStore } from '~/store'
 @Component({
   components: {
     PartModalContainer,
-    Foreground,
     PartTrialLink,
     SectionOverview,
     SectionIntroduction,
