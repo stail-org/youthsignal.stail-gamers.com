@@ -66,7 +66,41 @@ import Head2 from '~/components/common/parts/Head2.vue'
     Head2,
   },
 })
-export default class Recruit extends Vue {}
+export default class Recruit extends Vue {
+  head() {
+    return {
+      title: 'Recruit - YouthSignal',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            '同人サークル STail では、共に最高のゲームを作るメンバーを募集しています。',
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: 'サークルメンバーを募集しています！【サークルSTail】',
+        },
+        {
+          hid: 'og:url',
+          name: 'og:url',
+          content: 'https://youthsignal.stail-gamers.com/recruit/',
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content: '共に、最高のゲームを作りませんか。',
+        },
+        {
+          hid: 'og:site_name',
+          name: 'og:site_name',
+          content: 'Recruit - YouthSignal',
+        },
+      ],
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>

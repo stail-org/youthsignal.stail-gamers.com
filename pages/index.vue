@@ -46,10 +46,11 @@ import { viewStore } from '~/store'
   },
 })
 export default class Index extends Vue {
-  created() {
+  mounted() {
+    if (!viewStore.notInitializedWindowSize) return
+
     viewStore.setWindowSize({ width: innerWidth, height: innerHeight })
     window.addEventListener('resize', () => {
-      const { innerWidth, innerHeight } = window
       viewStore.setWindowSize({ width: innerWidth, height: innerHeight })
     })
   }

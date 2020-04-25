@@ -50,7 +50,7 @@ export interface CharacterData {
 
 @Module({ stateFactory: true, namespaced: true, name: 'character' })
 export default class Character extends VuexModule {
-  audio: HTMLAudioElement = new Audio()
+  audio?: HTMLAudioElement
   showingIndex: number = 1
 
   list: CharacterData[] = [
@@ -324,7 +324,7 @@ export default class Character extends VuexModule {
   @Mutation
   playVoice(src: string) {
     let voice = this.audio
-    if (voice === null) voice = new Audio()
+    if (!voice) voice = this.audio = new Audio()
     else voice.pause()
     voice.src = src
     voice.play()

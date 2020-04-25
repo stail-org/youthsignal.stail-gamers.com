@@ -12,6 +12,10 @@ export default class View extends VuexModule {
     height: 0,
   }
 
+  get notInitializedWindowSize() {
+    return this.windowSize.width === 0
+  }
+
   /**
    * Window の width, height を保管する
    * @param payload.width 横幅

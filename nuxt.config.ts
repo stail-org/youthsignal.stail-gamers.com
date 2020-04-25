@@ -1,7 +1,7 @@
 import { Configuration } from '@nuxt/types'
 
 const config: Configuration = {
-  mode: 'spa',
+  mode: 'universal',
   head: {
     title: 'YouthSignal - 「本当になりたい自分」を取り戻す青春ADV',
     meta: [
@@ -19,7 +19,7 @@ const config: Configuration = {
         content: 'telephone=no,address=no,email=no',
       },
       { name: 'twitter:card', content: 'summary_large_image' },
-      { name: 'twitter:site', content: '@h4LduJFlqUapkXt' },
+      { name: 'twitter:site', content: '@STail_Official' },
       { hid: 'og:type', name: 'og:type', content: 'website' },
       {
         hid: 'og:title',
