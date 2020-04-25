@@ -3,15 +3,8 @@
     <div class="CharacterArea__Container compact-container w-100">
       <h2 class="CharacterArea__Title">
         <img
-          v-if="width > 1200"
           class="CharacterArea__Title__Img"
-          src="~/assets/images/character-area/chara-title.png"
-          alt="YouthSignal Character"
-        />
-        <img
-          v-else
-          class="CharacterArea__Title__Img"
-          src="~/assets/images/character-area/chara-title-sp.png"
+          :src="titleImgSrc"
           alt="YouthSignal Character"
         />
       </h2>
@@ -117,12 +110,10 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 import { CharacterData } from '~/store/character'
-import { characterStore } from '~/store'
+import { characterStore, viewStore } from '~/store'
 
 @Component
 export default class CharacterArea extends Vue {
-  width = window.innerWidth
-  height = window.innerHeight
   charaColors = {
     yoshito: '#838383',
     shizuno: '#5951ff',
@@ -140,17 +131,10 @@ export default class CharacterArea extends Vue {
     return characterStore.list
   }
 
-  mounted() {
-    window.addEventListener('resize', this.handleResize)
-  }
-
-  beforeDestroy() {
-    window.removeEventListener('resize', this.handleResize)
-  }
-
-  handleResize() {
-    this.width = window.innerWidth
-    this.height = window.innerHeight
+  get titleImgSrc() {
+    const fileName =
+      viewStore.windowSize.width > 1200 ? 'chara-title' : 'chara-title-sp'
+    return require(`~/assets/images/character-area/${fileName}.png`)
   }
 
   show(characterAreaData: CharacterData) {

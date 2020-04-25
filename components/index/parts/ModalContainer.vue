@@ -27,7 +27,7 @@
           >
             ×
           </button>
-          <InfomationSlide v-show="mode === 'infomation'" />
+          <InformationSlide v-show="mode === 'information'" />
           <ImageSlide v-show="mode === 'image'" />
         </div>
       </div>
@@ -41,12 +41,12 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 import { modalStore } from '~/store'
 
-import InfomationSlide from '~/components/modal/contents/InfomationSlide.vue'
-import ImageSlide from '~/components/modal/contents/ImageSlide.vue'
+import InformationSlide from '~/components/index/parts/ModalInformationSlide.vue'
+import ImageSlide from '~/components/index/parts/ModalImageSlide.vue'
 
 @Component({
   components: {
-    InfomationSlide,
+    InformationSlide,
     ImageSlide,
   },
 })

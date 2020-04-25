@@ -31,14 +31,14 @@
     "@nuxtjs/style-resources": "^1.0.0",
     "bootstrap": "^4.4.1",
     "bootstrap-vue": "^2.9.0",
-    "imagesloaded": "^4.1.4",
     "nuxt": "^2.12.1",
     "nuxt-fontawesome": "^0.4.0",
     "nuxt-property-decorator": "^2.5.1",
     "particles.js": "^2.0.0",
     "swiper": "^5.3.6",
     "vue-awesome-swiper": "^4.1.0",
-    "vue-scrollto": "^2.17.1"
+    "vue-scrollto": "^2.17.1",
+    "vue-youtube": "^1.4.0"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^0.6.1",

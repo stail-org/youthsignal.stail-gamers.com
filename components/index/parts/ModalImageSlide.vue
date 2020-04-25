@@ -43,7 +43,7 @@ import 'swiper/css/swiper.css'
     SwiperSlide,
   },
 })
-export default class InfomationSlide extends Vue {
+export default class ModalImageSlide extends Vue {
   swiperOption = {
     loop: true,
     pagination: {

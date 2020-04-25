@@ -46,7 +46,7 @@ export default class ImagesArea extends Vue {
     return imageStore.smallImages
   }
 
-  showModal(mode: 'infomation' | 'image', showTarget: number) {
+  showModal(mode: 'information' | 'image', showTarget: number) {
     modalStore.show({ mode, showTarget })
   }
 }

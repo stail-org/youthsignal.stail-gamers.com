@@ -1,19 +1,19 @@
 <template>
   <swiper
-    id="swiperInfomation"
-    class="InfomationSlide w-100 text-center"
+    id="swiperInformation"
+    class="InformationSlide w-100 text-center"
     :options="swiperOption"
   >
     <swiper-slide v-for="info in infoModalList" :key="info.id">
       <img
-        class="InfomationSlide__Content w-auto h-100"
+        class="InformationSlide__Content w-auto h-100"
         :src="
-          require(`~/assets/images/overview-area/infomations/${info.createdAt.replace(
+          require(`~/assets/images/overview-area/informations/${info.createdAt.replace(
             /-/g,
             ''
           )}.png`)
         "
-        :alt="`YouthSignal Infomation ${info.title}`"
+        :alt="`YouthSignal Information ${info.title}`"
         @click.stop
       />
     </swiper-slide>
@@ -44,7 +44,7 @@ import 'swiper/css/swiper.css'
     SwiperSlide,
   },
 })
-export default class InfomationSlide extends Vue {
+export default class ModalInformationSlide extends Vue {
   swiperOption = {
     slidesPerView: 1,
     spaceBetween: 0,
@@ -66,7 +66,7 @@ export default class InfomationSlide extends Vue {
 </script>
 
 <style scoped lang="scss">
-.InfomationSlide {
+.InformationSlide {
   height: 95vh;
   padding-bottom: 40px;
   @media (max-width: $--md) {

@@ -3,15 +3,8 @@
     <div class="IntroductionArea__Container compact-container">
       <h2 class="IntroductionArea__Title">
         <img
-          v-if="width > 768"
           class="IntroductionArea__Title__Img"
-          src="~/assets/images/introduction-area/introduction-title.png"
-          alt="YouthSignal Introduction"
-        />
-        <img
-          v-else
-          class="IntroductionArea__Title__Img"
-          src="~/assets/images/introduction-area/introduction-title-sp.png"
+          :src="titleImgSrc"
           alt="YouthSignal Introduction"
         />
       </h2>
@@ -28,7 +21,7 @@
           </span>
         </p>
         <p class="IntroductionArea__Synopsis__Text">
-          耐えない落書き、イタズラ、陰湿ないじめ、影の暴力、匙を投げた教員……。<br />そして風紀の乱れを律するべく動く本校生徒会、所属する生徒達。
+          絶えない落書き、イタズラ、陰湿ないじめ、影の暴力、匙を投げた教員……。<br />そして風紀の乱れを律するべく動く本校生徒会、所属する生徒達。
         </p>
         <p class="IntroductionArea__Synopsis__Text">
           同時に、本来なら部活や勉強、もっと普通の学生生活を送っていたであろうはずの生徒会員生徒は、<br />各々が思春期独特の言い様のない不安感や焦燥感、日常を費やす欠落感に苛まれながら過ごしていた。
@@ -76,22 +69,16 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 
+import { viewStore } from '~/store'
+
 @Component
 export default class IntroductionArea extends Vue {
-  width: number = window.innerWidth
-  height: number = window.innerHeight
-
-  mounted() {
-    window.addEventListener('resize', this.handleResize)
-  }
-
-  beforeDestroy() {
-    window.removeEventListener('resize', this.handleResize)
-  }
-
-  handleResize() {
-    this.width = window.innerWidth
-    this.height = window.innerHeight
+  get titleImgSrc() {
+    const fileName =
+      viewStore.windowSize.width > 768
+        ? 'introduction-title'
+        : 'introduction-title-sp'
+    return require(`~/assets/images/introduction-area/${fileName}.png`)
   }
 }
 </script>

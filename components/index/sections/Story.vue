@@ -3,15 +3,8 @@
     <div class="compact-container text-center">
       <h2 class="StoryArea__Title">
         <img
-          v-if="width > 768"
           class="StoryArea__Title__Img"
-          src="~/assets/images/story-area/story-title.png"
-          alt="YouthSignal Thema and Story"
-        />
-        <img
-          v-else
-          class="StoryArea__Title__Img"
-          src="~/assets/images/story-area/story-title-sp.png"
+          :src="titleImgSrc"
           alt="YouthSignal Thema and Story"
         />
       </h2>
@@ -48,22 +41,14 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 
+import { viewStore } from '~/store'
+
 @Component
 export default class StoryArea extends Vue {
-  width: number = window.innerWidth
-  height: number = window.innerHeight
-
-  mounted() {
-    window.addEventListener('resize', this.handleResize)
-  }
-
-  beforeDestroy() {
-    window.removeEventListener('resize', this.handleResize)
-  }
-
-  handleResize() {
-    this.width = window.innerWidth
-    this.height = window.innerHeight
+  get titleImgSrc() {
+    const fileName =
+      viewStore.windowSize.width > 768 ? 'story-title' : 'story-title-sp'
+    return require(`~/assets/images/story-area/${fileName}.png`)
   }
 }
 </script>

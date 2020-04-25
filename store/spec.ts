@@ -17,7 +17,7 @@ export default class Spec extends VuexModule {
     {
       id: 2,
       key: '頒布日',
-      value: '2020年 夏（予定）',
+      value: '2020年12月（予定）',
     },
     {
       id: 3,

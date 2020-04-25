@@ -56,11 +56,12 @@ const config: Configuration = {
     ],
   },
   loading: { color: '#fff' },
+  loadingIndicator: 'loading.html',
   css: ['~/assets/scss/styles/main.scss'],
   plugins: [
     { src: '~/plugins/ga.js', ssr: false },
-    '~/plugins/particles.js',
     '~/plugins/vue-scrollto.js',
+    '~/plugins/vue-youtube.ts',
   ],
   buildModules: [
     '@nuxtjs/eslint-module',
