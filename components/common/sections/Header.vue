@@ -28,7 +28,7 @@
     <h1 class="Header__Title position-absolute m-0" @click="navigateToTopPage">
       <img
         class="Header__Title__Img"
-        src="youthsignal-header.png"
+        src="/youthsignal-header.png"
         alt="YouthSignal"
       />
     </h1>
