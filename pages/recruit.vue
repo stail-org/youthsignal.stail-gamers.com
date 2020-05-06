@@ -127,6 +127,9 @@ export default class Recruit extends Vue {
 ul {
   padding-left: 1.5rem;
   list-style: circle;
+  li {
+    margin-bottom: 0.5rem;
+  }
 }
 
 .wrapper {
