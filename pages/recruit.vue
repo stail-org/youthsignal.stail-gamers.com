@@ -7,20 +7,14 @@
       <head2 class="Recruit__Subtitle">募集要項</head2>
       <div class="Recruit__Item Recruit__Role">
         <ul>
-          <li>アシスタントディレクター</li>
+          <li>スクリプター</li>
         </ul>
       </div>
 
       <head2 class="Recruit__Subtitle">業務概要</head2>
       <div class="Recruit__Item Recruit__Overview">
-        <p class="Recruit__Overview__Head">
-          ディレクターの作業を補佐
-        </p>
-        <p>膨大にあるディレクターの作業を一部フォローしてもらいます。</p>
-        <p>
-          最初は雑務メインになりますが、いずれは重要な仕事やディレクターとして
-          サークルのメンバーを引っ張って作品を手掛けてもらう可能性も？！
-        </p>
+        <p class="Recruit__Overview__Head"></p>
+        ノベルゲーム作品「YouthSignal」のスクリプトを担当
       </div>
 
       <head2 class="Recruit__Subtitle">募集条件</head2>
@@ -28,21 +22,47 @@
         <ul>
           <li>１８歳以上であること</li>
           <li>定期的にディスコードにてやりとりを行えること</li>
-          <li>必要最低限のネットマナーをわきまえていること</li>
-          <li>一年以上共に歩める人</li>
+          <li>まじめであること</li>
+          <li>１年以上共に作品に携われる方</li>
+          <li>ノベルゲームが好き。YouthSignal が好き。</li>
         </ul>
+      </div>
+
+      <head2 class="Recruit__Subtitle">必須スキル</head2>
+      <div class="Recruit__Item Recruit__Required">
+        <ul>
+          <li>ノベルゲーム、およびスクリプトへの基礎知識（実務経験不問）</li>
+          <li>必要最低限のパソコンスキル</li>
+        </ul>
+      </div>
+
+      <head2 class="Recruit__Subtitle">歓迎スキル</head2>
+      <div class="Recruit__Item Recruit__Required">
+        <ul>
+          <li>TyranoScript 等のスクリプト制作経験</li>
+          <li>プログラミング経験</li>
+          <ul>
+            <li>Unity (C#)</li>
+            <li>HTML, CSS, JavaScript</li>
+            <li>Nuxt.js</li>
+          </ul>
+        </ul>
+        いずれかのスキルや経験があると、様々なことへの挑戦の機会もあります。
       </div>
 
       <head2 class="Recruit__Subtitle">ディレクターからひと言</head2>
       <div class="Recruit__Item Recruit__Comment">
         <p>
-          ゲーム業界を目指したい方や私のサークルの作品を盛り上げたい方を募集しています。
+          商業作品に負けないボリュームのノベルゲームのスクリプター募集になります。
         </p>
         <p>
-          ノベルゲームの作業の流れや過程を見ることができるため、貴重な経験ができると思います。
+          キャラクターの表情やセリフの他、様々なエフェクトで魅力的な物語を一層引き立て、
         </p>
         <p>
-          共に「ユースシグナル」を盛り上げていきましょう！
+          ユーザーに“面白い”を共に伝えてくれる方を募集しています。
+        </p>
+        <p>
+          共にノベルゲームの面白さを世界に伝えてみませんか？
         </p>
       </div>
 
