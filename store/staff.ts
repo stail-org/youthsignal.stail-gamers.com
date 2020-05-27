@@ -30,15 +30,15 @@ export default class Staff extends VuexModule {
     },
     {
       id: 4,
-      name: 'yushin',
-      role: 'サウンド',
-      twitterId: '',
-    },
-    {
-      id: 5,
       name: 'カレイド',
       role: '原画',
       twitterId: 'kaleidstar',
+    },
+    {
+      id: 5,
+      name: '荒咲りゆ',
+      role: 'スクリプト',
+      twitterId: 'riyu_aktk',
     },
     {
       id: 6,
@@ -69,6 +69,12 @@ export default class Staff extends VuexModule {
       name: 'うるち',
       role: 'GUI',
       twitterId: 'uruchi11_1',
+    },
+    {
+      id: 11,
+      name: 'yushin',
+      role: 'サウンド',
+      twitterId: '',
     },
   ]
 }
