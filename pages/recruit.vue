@@ -1,4 +1,3 @@
-@ -0,0 +1,100 @@
 <template>
   <main class="wrapper">
     <div class="Recruit container px-md-5 py-4">
@@ -7,62 +6,87 @@
       <head2 class="Recruit__Subtitle">募集要項</head2>
       <div class="Recruit__Item Recruit__Role">
         <ul>
-          <li>スクリプター</li>
+          <li>女性声優兼広報アシスタント</li>
         </ul>
       </div>
 
       <head2 class="Recruit__Subtitle">業務概要</head2>
       <div class="Recruit__Item Recruit__Overview">
-        <p class="Recruit__Overview__Head"></p>
-        ノベルゲーム作品「YouthSignal」のスクリプトを担当
+        <ul>
+          <li>ノベルゲーム「YouthSignal」の広報アシスタント</li>
+          <li>宣伝ラジオやナレーション、次回作への声優参加など声優の作業</li>
+        </ul>
+      </div>
+
+      <head2 class="Recruit__Subtitle">作業内容</head2>
+      <div class="Recruit__Item Recruit__Task">
+        <ul>
+          <li>Ci-enやツイッターなどの広報運用と企画立案の補佐</li>
+          <li>ラジオのMC/ナレーションなどの声優としての参加</li>
+        </ul>
       </div>
 
       <head2 class="Recruit__Subtitle">募集条件</head2>
       <div class="Recruit__Item Recruit__Request">
         <ul>
-          <li>１８歳以上であること</li>
+          <li>１８歳以上の女性であること</li>
+          <li>今後声優としてステップアップしたい/出来ることを増やしたい</li>
           <li>定期的にディスコードにてやりとりを行えること</li>
-          <li>まじめであること</li>
           <li>１年以上共に作品に携われる方</li>
-          <li>ノベルゲームが好き。YouthSignal が好き。</li>
+          <li>ノベルゲームが好き</li>
         </ul>
       </div>
 
       <head2 class="Recruit__Subtitle">必須スキル</head2>
       <div class="Recruit__Item Recruit__Required">
         <ul>
-          <li>ノベルゲーム、およびスクリプトへの基礎知識（実務経験不問）</li>
-          <li>必要最低限のパソコンスキル</li>
+          <li>やる気に溢れている</li>
+          <li>宅録ができる</li>
+          <li>声優以外にも武器を作りたい</li>
         </ul>
       </div>
 
       <head2 class="Recruit__Subtitle">歓迎スキル</head2>
-      <div class="Recruit__Item Recruit__Required">
+      <div class="Recruit__Item Recruit__Wanted">
         <ul>
-          <li>TyranoScript 等のスクリプト制作経験</li>
-          <li>プログラミング経験</li>
-          <ul>
-            <li>Unity (C#)</li>
-            <li>HTML, CSS, JavaScript</li>
-            <li>Nuxt.js</li>
-          </ul>
+          <li>ブログなどのサイト運営</li>
+          <li>美少女ゲームが好き</li>
+          <li>ジャンルにとらわれず何事にも挑戦できる。</li>
         </ul>
-        いずれかのスキルや経験があると、様々なことへの挑戦の機会もあります。
+      </div>
+
+      <head2 class="Recruit__Subtitle">報酬</head2>
+      <div class="Recruit__Item Recruit__Reward">
+        <ul>
+          <li>応相談</li>
+        </ul>
+        （できることや作業量によって変わります）
       </div>
 
       <head2 class="Recruit__Subtitle">ディレクターからひと言</head2>
       <div class="Recruit__Item Recruit__Comment">
         <p>
-          商業作品に負けないボリュームのノベルゲームのスクリプター募集になります。
+          同人ゲームサークル「STail」での声優兼広報アシスタントの募集になります。
         </p>
+
         <p>
-          キャラクターの表情やセリフの他、様々なエフェクトで魅力的な物語を一層引き立て、
+          現役のコンシューマーゲーム制作会社で仕事をしているメンバーと共に、<br />
+          声優として、広報アシスタントとして、サークルと一緒に成長できる方を募集しています。
         </p>
+
         <p>
-          ユーザーに“面白い”を共に伝えてくれる方を募集しています。
+          声優のスキルのみを磨くことが志望の方にとっては、また違った方向性の募集でありますが、<br />
+          Ci-en での企画やグッズの制作ノウハウなどを身に着けながら、<br />
+          声優として色々なことを一緒にやっていける方を募集しています。
         </p>
+
         <p>
-          共にノベルゲームの面白さを世界に伝えてみませんか？
+          私たちと共に成長していく中で、次回作への出演やラジオのパーソナリティなどもお任せできるかもしれません。<br />
+          また、自分でやりたい企画などを挙げていただれば、サークルの企画としてしっかり話し合い、全力で応援します。
+        </p>
+
+        <p>
+          声優としてだけではなく、様々なノウハウを得られるチャンスだと思います。この機会にいかがですか？
         </p>
       </div>
 
