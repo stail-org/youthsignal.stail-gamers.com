@@ -2,11 +2,10 @@
   <recruit-wrapper>
     <h1 class="text-center">募集一覧</h1>
     <p v-for="metadata in recruitMetadataList" :key="metadata.id">
-      <nuxt-link :to="`${metadata.id}`">
+      <nuxt-link :to="`/recruit/${metadata.id}`">
         {{ metadata.title }}
       </nuxt-link>
     </p>
-    <p><nuxt-link to="/recruit/scriptor">スクリプター</nuxt-link></p>
   </recruit-wrapper>
 </template>
 
@@ -14,6 +13,7 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 
 import RecruitWrapper from '~/components/recruit/parts/RecruitWrapper.vue'
+import { recruitStore } from '~/store'
 
 @Component({
   components: {
@@ -21,6 +21,10 @@ import RecruitWrapper from '~/components/recruit/parts/RecruitWrapper.vue'
   },
 })
 export default class Recruit extends Vue {
+  get recruitMetadataList() {
+    return recruitStore.metadataList
+  }
+
   head() {
     return {
       title: 'Recruit - YouthSignal',

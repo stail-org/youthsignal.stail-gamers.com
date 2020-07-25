@@ -9,6 +9,7 @@ import Spec from '~/store/spec'
 import Staff from '~/store/staff'
 import Modal from '~/store/modal'
 import View from '~/store/view'
+import Recruit from '~/store/recruit'
 
 let informationStore: information
 let characterStore: Character
@@ -17,6 +18,7 @@ let specStore: Spec
 let staffStore: Staff
 let modalStore: Modal
 let viewStore: View
+let recruitStore: Recruit
 
 function initializeStores(store: Store<any>): void {
   informationStore = getModule(information, store)
@@ -26,6 +28,7 @@ function initializeStores(store: Store<any>): void {
   staffStore = getModule(Staff, store)
   modalStore = getModule(Modal, store)
   viewStore = getModule(View, store)
+  recruitStore = getModule(Recruit, store)
 }
 
 export {
@@ -37,4 +40,5 @@ export {
   staffStore,
   modalStore,
   viewStore,
+  recruitStore,
 }
