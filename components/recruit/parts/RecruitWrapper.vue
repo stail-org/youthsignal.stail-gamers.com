@@ -24,8 +24,12 @@ export default class RecruitWrapper extends Vue {}
 
 .RecruitWrapper {
   max-width: $--md;
+  min-height: calc(100vh - 60px - 56px);
   color: $color-lighter;
   background: rgba($color-darker, 0.8);
+  @media (max-width: $--md) {
+    min-height: calc(100vh - 40px - 52px);
+  }
   &__Subtitle {
     margin-top: 3rem;
   }
