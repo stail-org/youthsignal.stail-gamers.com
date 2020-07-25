@@ -1,9 +1,9 @@
 <template>
   <recruit-wrapper>
     <h1 class="text-center">募集一覧</h1>
-    <p>
-      <nuxt-link to="/recruit/voice-actor">
-        女性声優 兼 広報アシスタント
+    <p v-for="metadata in recruitMetadataList" :key="metadata.id">
+      <nuxt-link :to="`${metadata.id}`">
+        {{ metadata.title }}
       </nuxt-link>
     </p>
     <p><nuxt-link to="/recruit/scriptor">スクリプター</nuxt-link></p>
