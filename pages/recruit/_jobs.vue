@@ -91,6 +91,10 @@ import Head2 from '~/components/common/parts/Head2.vue'
 export default class Recruit extends Vue {
   jobs: string = ''
 
+  head() {
+    return this.recruitData?.head
+  }
+
   validate({ params }) {
     // recruit store に定義している ID に存在しないスラッグの場合は page not found
     const md = recruitStore.metadataList.find((md) => md.id === params.jobs)

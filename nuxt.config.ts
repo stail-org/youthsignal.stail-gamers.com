@@ -91,6 +91,9 @@ const config: Configuration = {
     component: 'fa',
   },
   build: {},
+  generate: {
+    routes: ['/recruit/scriptor', '/recruit/voice-actor'],
+  },
 }
 
 export default config
