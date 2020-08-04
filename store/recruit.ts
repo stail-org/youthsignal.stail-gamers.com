@@ -14,6 +14,7 @@ interface RecruitData extends RecruitMetadata {
 interface RecruitMetadata {
   id: string
   title: string
+  description: string
 }
 
 @Module({ stateFactory: true, namespaced: true, name: 'recruit' })
@@ -22,6 +23,8 @@ export default class Recruit extends VuexModule {
     {
       id: 'scriptor',
       title: 'スクリプター',
+      description:
+        'ティラノスクリプトを用いたノベルゲーム向けスクリプトの開発をして頂きます。経験不問ですので、未経験の方でもノベルゲーム制作に興味がある方は、ぜひご応募ください。',
       overview: ['ノベルゲーム「YouthSignal」のスクリプト制作'],
       task: [
         'ティラノスクリプトベースのスクリプト制作作業',
@@ -86,6 +89,7 @@ export default class Recruit extends VuexModule {
       metadataList.push({
         id: recruitData.id,
         title: recruitData.title,
+        description: recruitData.description,
       })
     }
 

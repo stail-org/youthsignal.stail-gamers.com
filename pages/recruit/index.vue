@@ -7,7 +7,11 @@
         :key="metadata.id"
         class="Recruit__LinkCardList__Item"
       >
-        <recruit-link-card :id="metadata.id" :title="metadata.title" />
+        <recruit-link-card
+          :id="metadata.id"
+          :title="metadata.title"
+          :description="metadata.description"
+        />
       </li>
     </ul>
   </recruit-wrapper>

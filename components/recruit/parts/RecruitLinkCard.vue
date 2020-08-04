@@ -4,7 +4,7 @@
       <b-col class="RecruitLinkCard__ColumnImage" md="3">
         <img
           class="RecruitLinkCard__ColumnImage__Img"
-          src="~/assets/images/recruit/link-card-images/scriptor.png"
+          :src="require(`~/assets/images/recruit/link-card-images/${id}.png`)"
           :alt="`${title}募集画像`"
           width="256"
           height="256"
@@ -13,8 +13,7 @@
       <b-col class="RecruitLinkCard__ColumnText" md="9">
         <b-card-body :title="title">
           <b-card-text>
-            ティラノスクリプトを用いたノベルゲーム向けスクリプトの開発をして頂きます。
-            経験不問ですので、未経験の方でもノベルゲーム制作に興味がある方は、ぜひご応募ください。
+            {{ description }}
           </b-card-text>
         </b-card-body>
       </b-col>
@@ -32,6 +31,9 @@ export default class RecruitLinkCard extends Vue {
 
   @Prop()
   title!: string
+
+  @Prop()
+  description!: string
 }
 </script>
 
