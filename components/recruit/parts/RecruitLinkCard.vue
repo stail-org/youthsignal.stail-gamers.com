@@ -1,5 +1,9 @@
 <template>
-  <b-card class="RecruitLinkCard" no-body>
+  <b-card
+    class="RecruitLinkCard"
+    no-body
+    @click="$router.push(`/recruit/${id}`)"
+  >
     <b-row no-gutters>
       <b-col class="RecruitLinkCard__ColumnImage" md="3">
         <img
