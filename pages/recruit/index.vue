@@ -1,8 +1,12 @@
 <template>
   <recruit-wrapper>
-    <h1 class="text-center">募集一覧</h1>
-    <ul>
-      <li v-for="metadata in recruitMetadataList" :key="metadata.id">
+    <h1 class="text-center Recruit__Header">募集一覧</h1>
+    <ul class="Recruit__LinkCardList">
+      <li
+        v-for="metadata in recruitMetadataList"
+        :key="metadata.id"
+        class="Recruit__LinkCardList__Item"
+      >
         <recruit-link-card :id="metadata.id" :title="metadata.title" />
       </li>
     </ul>
@@ -62,3 +66,16 @@ export default class Recruit extends Vue {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.Recruit {
+  &__Header {
+    margin-bottom: 3rem;
+  }
+  &__LinkCardList {
+    &__Item {
+      margin-bottom: 2rem;
+    }
+  }
+}
+</style>
