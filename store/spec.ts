@@ -44,7 +44,7 @@ export default class Spec extends VuexModule {
       key: '対応ＯＳ',
       value: [
         ['必須', 'WindowsXP以降（MacOS不可）'],
-        ['推奨', 'Windwos 7, 8, 8.1, 10'],
+        ['推奨', 'Windows 7, 8, 8.1, 10'],
       ],
     },
     {
