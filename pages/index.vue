@@ -5,8 +5,13 @@
       <div class="Top__Article__Contents pb-5">
         <section-fixed-right-top>
           <part-link-box
-            title="体験版はこちら！"
-            url="https://youthsignal-trial.stail-gamers.com/"
+            title="Cien で毎月リリース中！"
+            url="https://ci-en.net/creator/2349/article/412646"
+          />
+          <part-link-box
+            class="mt-2"
+            title="DLsite"
+            url="https://www.dlsite.com/home/circle/profile/=/maker_id/RG52910.html"
           />
         </section-fixed-right-top>
         <section-overview />
