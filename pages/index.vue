@@ -3,7 +3,17 @@
     <part-modal-container />
     <article class="Top__Article">
       <div class="Top__Article__Contents pb-5">
-        <part-trial-link />
+        <section-fixed-right-top>
+          <part-link-box
+            title="Cien で毎月リリース中！"
+            url="https://ci-en.net/creator/2349/article/412646"
+          />
+          <part-link-box
+            class="mt-2"
+            title="DLsite"
+            url="https://www.dlsite.com/home/circle/profile/=/maker_id/RG52910.html"
+          />
+        </section-fixed-right-top>
         <section-overview />
         <section-introduction />
         <section-story />
@@ -26,16 +36,17 @@ import SectionCharacter from '~/components/index/sections/Character.vue'
 import SectionImages from '~/components/index/sections/Images.vue'
 import SectionStaff from '~/components/index/sections/Staff.vue'
 import SectionSpec from '~/components/index/sections/Spec.vue'
+import SectionFixedRightTop from '~/components/index/sections/FixedRightTop.vue'
 
 import PartModalContainer from '~/components/index/parts/ModalContainer.vue'
-import PartTrialLink from '~/components/index/parts/TrialLink.vue'
+import PartLinkBox from '~/components/index/parts/LinkBox.vue'
 
 import { viewStore } from '~/store'
 
 @Component({
   components: {
     PartModalContainer,
-    PartTrialLink,
+    PartLinkBox,
     SectionOverview,
     SectionIntroduction,
     SectionStory,
@@ -43,6 +54,7 @@ import { viewStore } from '~/store'
     SectionImages,
     SectionStaff,
     SectionSpec,
+    SectionFixedRightTop,
   },
 })
 export default class Index extends Vue {
