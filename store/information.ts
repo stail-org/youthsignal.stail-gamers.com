@@ -6,7 +6,8 @@ export interface InformationData {
   createdAt: string
   author: string
   route: string
-  type: 'modal'
+  url?: string
+  type: 'modal' | 'link'
 }
 
 @Module({ stateFactory: true, namespaced: true, name: 'information' })
@@ -14,11 +15,12 @@ export default class information extends VuexModule {
   list: InformationData[] = [
     {
       id: 3,
-      title: '【YouthSignal 体験版】リリース',
+      title: 'YouthSignal Web 体験版はこちら',
       createdAt: '2019-12-17',
       author: 'Stail',
       route: 'info-2019-12-17',
-      type: 'modal',
+      url: 'https://youthsignal-trial.stail-gamers.com/',
+      type: 'link',
     },
     {
       id: 2,
