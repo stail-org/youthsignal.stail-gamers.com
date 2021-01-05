@@ -60,7 +60,7 @@ export default class Character extends VuexModule {
       furigana: 'くどう よしと',
       showing: false,
       overview: {
-        cv: '？？？',
+        cv: '清水こうき',
       },
       introduction: {
         top: '「こんなことが許されていいのか……」',
@@ -84,7 +84,7 @@ export default class Character extends VuexModule {
       furigana: 'しののめ しずの',
       showing: true,
       overview: {
-        cv: '？？？',
+        cv: '浅見ゆい',
       },
       introduction: {
         top: '「なんで私がそんな心配をしなければならないの」',
@@ -109,7 +109,7 @@ export default class Character extends VuexModule {
       furigana: 'ゆすらの あさひ',
       showing: false,
       overview: {
-        cv: '？？？',
+        cv: '結崎有理',
       },
       introduction: {
         top: '「もっとこう、高校生らしく……ね？」',
@@ -131,7 +131,7 @@ export default class Character extends VuexModule {
       furigana: 'つばき りこ',
       showing: false,
       overview: {
-        cv: '？？？',
+        cv: '紗倉妃芽',
       },
       introduction: {
         top: '「り、りり、凛子……そんな、自信ないです……」',
@@ -153,7 +153,7 @@ export default class Character extends VuexModule {
       furigana: 'よしだ しゅんぺい',
       showing: false,
       overview: {
-        cv: '？？？',
+        cv: '陽向ゆき',
       },
       introduction: {
         top: '「おい見ろよ。あれは……あぁ間違いねぇ、Eカップだ」',
@@ -177,7 +177,7 @@ export default class Character extends VuexModule {
       furigana: 'かねらん さあや',
       showing: false,
       overview: {
-        cv: '？？？',
+        cv: '江井みゆき',
       },
       introduction: {
         top:
@@ -201,7 +201,7 @@ export default class Character extends VuexModule {
       furigana: 'うらと すず',
       showing: false,
       overview: {
-        cv: '？？？',
+        cv: '有村蓮',
       },
       introduction: {
         top: '「あ、こんにちは～！　今日も元気元気、ですねっ♪」',
@@ -224,7 +224,7 @@ export default class Character extends VuexModule {
       furigana: 'つくしだ まひろ',
       showing: false,
       overview: {
-        cv: '？？？',
+        cv: '有村蓮',
       },
       introduction: {
         top: '「え？　……ああ、どうも」',
@@ -247,7 +247,7 @@ export default class Character extends VuexModule {
       furigana: 'しんかい ゆうと',
       showing: false,
       overview: {
-        cv: '？？？',
+        cv: 'しぐれなお',
       },
       introduction: {
         top: '「仕方ないなぁ、僕がやって見せてあげよう」',
@@ -269,7 +269,7 @@ export default class Character extends VuexModule {
       furigana: 'かんざき としゆき',
       showing: false,
       overview: {
-        cv: '？？？',
+        cv: '美藤秀吉',
       },
       introduction: {
         top: '「ん～！　それは難しい相談だなぁ～」',
