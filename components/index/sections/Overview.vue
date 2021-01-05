@@ -25,6 +25,17 @@
               >
                 {{ info.title }}
               </a>
+              <!-- モーダルウィンドウでインフォ表示 -->
+              <a
+                v-else-if="info.type === 'link'"
+                class="red always-underline"
+                :href="info.url"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {{ info.title }}
+                <fa class="fa" :icon="faExternalLinkAlt" />
+              </a>
             </p>
           </div>
           <nuxt-link to="/recruit" class="RecruitBanner">
@@ -44,7 +55,7 @@
             alt="YouthSignal Movies"
           />
         </h2>
-        <youtube ref="youtube" class="w-100" video-id="TwlO0CGsBj8"></youtube>
+        <youtube ref="youtube" class="w-100" video-id="poJz8Wq36dI"></youtube>
       </div>
     </div>
   </section>
@@ -52,6 +63,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
+import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
 import { informationStore, modalStore, viewStore } from '~/store'
 
 @Component
@@ -72,6 +84,10 @@ export default class OverviewArea extends Vue {
         ? 'overview-movie-title'
         : 'overview-movie-title-sp'
     return require(`~/assets/images/overview-area/${fileName}.png`)
+  }
+
+  get faExternalLinkAlt() {
+    return faExternalLinkAlt
   }
 
   showModal(mode: 'information' | 'image', showTarget: number) {
