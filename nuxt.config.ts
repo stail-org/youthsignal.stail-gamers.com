@@ -92,7 +92,7 @@ const config: Configuration = {
   },
   build: {},
   generate: {
-    routes: ['/recruit/scriptor', '/recruit/voice-actor'],
+    routes: ['/recruit/scriptor', '/recruit/promotion'],
   },
 }
 
