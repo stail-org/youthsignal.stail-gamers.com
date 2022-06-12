@@ -46,7 +46,7 @@ export default class Recruit extends VuexModule {
         '共に、ノベルゲームの面白さを世界に伝えてみませんか？',
       ],
       head: {
-        title: '広報・PRスタッフ - Recruit - YouthSignal',
+        title: '広報スタッフ - Recruit - YouthSignal',
         meta: [
           {
             hid: 'description',
@@ -58,7 +58,7 @@ export default class Recruit extends VuexModule {
             hid: 'og:title',
             name: 'og:title',
             content:
-              'ユースシグナルを盛り上げる広報スタッフを募集しています。！【サークルSTail】',
+              'ユースシグナルを盛り上げる広報スタッフを募集しています。【サークルSTail】',
           },
           {
             hid: 'og:url',
@@ -73,7 +73,7 @@ export default class Recruit extends VuexModule {
           {
             hid: 'og:site_name',
             name: 'og:site_name',
-            content: '広報・PRスタッフ - Recruit - YouthSignal',
+            content: '広報スタッフ - Recruit - YouthSignal',
           },
         ],
       },
