@@ -21,6 +21,64 @@ interface RecruitMetadata {
 export default class Recruit extends VuexModule {
   list: RecruitData[] = [
     {
+      id: 'promotion',
+      title: '広報スタッフ',
+      description:
+        'ノベルゲーム「YouthSignal」の広報業務を担っていただきます。経験不問ですので、未経験の方でもノベルゲーム制作に興味がある方は、ぜひご応募ください。',
+      overview: ['広報全般の企画立案と運営と分析'],
+      task: ['SNSの運用と分析', '支援記事の制作', 'YSSP販促作業 など'],
+      request: [
+        '基本的には有志でのご参加になります。',
+        'ユースシグナルの完全版リリースまで参加いただける方',
+        '定期的に Discord にてやりとりを行えること',
+        'ユースシグナルに一定数の熱意を持って作業をおこなえること',
+        'ゲーム制作が好き、あるいは興味をお持ちであること（広報関係に興味がある方、未経験の方でも歓迎いたします。）',
+      ],
+      required: ['最低限のパソコン操作スキル（実務経験等不問）'],
+      wanted: ['ノベルゲーム制作経験', 'SNSの運用経験', '簡単なデザイン経験'],
+      reward: [],
+      comment: [
+        'サークル「STail」及び「ユースシグナル」の広報業務スタッフの募集になります。',
+        '作品や活動の様子をユーザーの皆様に継続的に発信していくことに加え、ユースシグナルをより一層盛り上げていくために日々研究と実践を重ねています。',
+        'まずはユースシグナルの魅力を知っていただき、広報担当のりっちると共にSNSの運用分析、記事の作成やイベントの企画運営などをおこないます。',
+        '未経験の方でもマニュアルやサポートもありますので安心してご参加いただけます。',
+        'サークル STail のメンバーも、ほとんどが 0 からの手探りで企画を始めて、ここまで成長できたサークルです。全くの素人でも、ゲーム制作に関わってみたい、実績にしたい、完成させてみたいという目標や想いがあれば、全体でバックアップをしつつ楽しく制作できると思います。',
+        '共に、ノベルゲームの面白さを世界に伝えてみませんか？',
+      ],
+      head: {
+        title: '広報・PRスタッフ - Recruit - YouthSignal',
+        meta: [
+          {
+            hid: 'description',
+            name: 'description',
+            content:
+              '同人サークル STail では、共に最高のゲームを作るメンバーを募集しています！',
+          },
+          {
+            hid: 'og:title',
+            name: 'og:title',
+            content:
+              'ユースシグナルを盛り上げる広報スタッフを募集しています。！【サークルSTail】',
+          },
+          {
+            hid: 'og:url',
+            name: 'og:url',
+            content: 'https://youthsignal.stail-gamers.com/recruit/',
+          },
+          {
+            hid: 'og:description',
+            name: 'og:description',
+            content: '共に、最高のゲームを作りませんか。',
+          },
+          {
+            hid: 'og:site_name',
+            name: 'og:site_name',
+            content: 'スクリプター - Recruit - YouthSignal',
+          },
+        ],
+      },
+    },
+    {
       id: 'scriptor',
       title: 'スクリプター',
       description:
