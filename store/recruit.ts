@@ -73,7 +73,7 @@ export default class Recruit extends VuexModule {
           {
             hid: 'og:site_name',
             name: 'og:site_name',
-            content: 'スクリプター - Recruit - YouthSignal',
+            content: '広報・PRスタッフ - Recruit - YouthSignal',
           },
         ],
       },
