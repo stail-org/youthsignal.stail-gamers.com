@@ -19,7 +19,7 @@ export default class Staff extends VuexModule {
     {
       id: 2,
       name: 'りっちる',
-      role: 'アシスタントディレクター',
+      role: '広報ディレクター・補佐',
       twitterId: 'tatsu5755tat',
     },
     {

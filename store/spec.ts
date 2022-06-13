@@ -16,8 +16,8 @@ export default class Spec extends VuexModule {
     },
     {
       id: 2,
-      key: '頒布日',
-      value: '2020年12月（予定）',
+      key: '公開日',
+      value: 'Ci-en・DlsiteにてYSSP毎月先行公開中！',
     },
     {
       id: 3,
@@ -37,7 +37,7 @@ export default class Spec extends VuexModule {
     {
       id: 6,
       key: 'メディア',
-      value: 'DVD-ROM',
+      value: 'DVD-ROM、ダウンロード版',
     },
     {
       id: 7,
