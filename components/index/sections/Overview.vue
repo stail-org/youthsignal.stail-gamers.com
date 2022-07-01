@@ -38,14 +38,14 @@
               </a>
             </p>
           </div>
-          <nuxt-link to="/recruit" class="RecruitBanner">
-            <img
-              class="RecruitBanner__Img"
-              src="~/assets/images/overview-area/informations/recruit-banner.jpg"
-              alt="リクルートページはこちら"
-            />
-          </nuxt-link>
         </div>
+        <nuxt-link to="/recruit" class="RecruitBanner">
+          <img
+            class="RecruitBanner__Img"
+            src="~/assets/images/overview-area/informations/recruit-banner.jpg"
+            alt="リクルートページはこちら"
+          />
+        </nuxt-link>
       </div>
       <div class="OverviewArea__Movie">
         <h2 class="OverviewArea__Movie__Title">
@@ -121,6 +121,7 @@ $grid-breakpoint: ($--md - 16px) / 2;
       margin-bottom: 1rem;
     }
     &__List {
+      max-height: 282px;
       padding-right: 3%;
       padding-left: 3%;
       overflow-y: scroll;
@@ -137,11 +138,12 @@ $grid-breakpoint: ($--md - 16px) / 2;
           }
         }
       }
-      .RecruitBanner {
-        &__Img {
-          width: 100%;
-          margin-top: 2rem;
-        }
+    }
+    .RecruitBanner {
+      &__Img {
+        width: 100%;
+        padding-left: 3%;
+        margin-top: 2rem;
       }
     }
   }
