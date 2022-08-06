@@ -27,7 +27,7 @@ export default class information extends VuexModule {
       title: 'C100のお品書きを公開しました！',
       createdAt: '2022-8-06',
       author: 'STail',
-      route: 'info-2022-8-06',
+      route: 'info-2022-08-06',
       type: 'modal',
     },
     {
