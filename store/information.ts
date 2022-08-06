@@ -14,6 +14,32 @@ export interface InformationData {
 export default class information extends VuexModule {
   list: InformationData[] = [
     {
+      id: 13,
+      title: 'C100書き下ろし短編冒頭部分先行公開！',
+      createdAt: '2022-8-06',
+      author: 'STail',
+      route: 'info-2022-8-06',
+      url: 'https://ci-en.net/creator/2349/article/685289',
+      type: 'link',
+    },
+    {
+      id: 12,
+      title: 'C100のお品書きを公開しました！',
+      createdAt: '2022-8-06',
+      author: 'STail',
+      route: 'info-2022-8-06',
+      type: 'modal',
+    },
+    {
+      id: 11,
+      title: 'YouthSignal-yssp-Vol20配信開始！',
+      createdAt: '2022-7-28',
+      author: 'STail',
+      route: 'info-2022-7-28',
+      url: 'https://ci-en.net/creator/2349/article/680086',
+      type: 'link',
+    },
+    {
       id: 10,
       title: 'YouthSignal-yssp-Vol19配信開始！',
       createdAt: '2022-6-28',
