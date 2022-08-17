@@ -30,27 +30,27 @@ export default class Staff extends VuexModule {
     },
     {
       id: 4,
+      name: '牧下ユウ',
+      role: '演出監督・スクリプター',
+      twitterId: 'makisita_yu',
+    },
+    {
+      id: 5,
       name: 'カレイド',
       role: '原画',
       twitterId: 'kaleidstar',
     },
     {
-      id: 5,
+      id: 6,
       name: '有村蓮',
       role: '制作進行・サウンド',
       twitterId: 'armr_mgmg_',
     },
     {
-      id: 6,
+      id: 7,
       name: '望月しゅう',
       role: '背景線画',
       twitterId: 'knock1025',
-    },
-    {
-      id: 7,
-      name: 'ki-bo',
-      role: 'サウンド',
-      twitterId: 'k_i_1_b_o',
     },
     {
       id: 8,
@@ -60,15 +60,21 @@ export default class Staff extends VuexModule {
     },
     {
       id: 9,
-      name: 'yushin',
+      name: 'ki-bo',
       role: 'サウンド',
-      twitterId: '',
+      twitterId: 'k_i_1_b_o',
     },
     {
       id: 10,
       name: 'うるち',
       role: 'GUI',
       twitterId: 'uruchi11_1',
+    },
+    {
+      id: 11,
+      name: 'yushin',
+      role: 'サウンド',
+      twitterId: '',
     },
   ]
 }
