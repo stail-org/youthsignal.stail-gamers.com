@@ -106,7 +106,7 @@ export default class OverviewArea extends Vue {
     createdAt: Date
   }[] = []
 
-  @Prop({ type: Object, required: true }) readonly cienInfo!: CienInfo[]
+  @Prop({ type: Array, required: true }) readonly cienInfo!: CienInfo[]
 
   get cienInfoList(): CienInfo[] {
     return this.cienInfo

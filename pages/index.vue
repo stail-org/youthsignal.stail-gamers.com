@@ -63,11 +63,16 @@ const parser = new Parser()
   },
 })
 export default class Index extends Vue {
+  cienInfoList: {
+    id: number
+    title: string
+    url: string
+    createdAt: Date
+  }[] = []
+
   data() {
     return {
       cienInfoList: [
-        { id: 1, title: 'hello', url: 'hhh', createdAt: new Date() },
-        { id: 1, title: 'hello', url: 'hhh', createdAt: new Date() },
         { id: 1, title: 'hello', url: 'hhh', createdAt: new Date() },
       ] as CienInfo[],
     }
@@ -80,8 +85,12 @@ export default class Index extends Vue {
     window.addEventListener('resize', () => {
       viewStore.setWindowSize({ width: innerWidth, height: innerHeight })
     })
-    // this.getRss().then((data) => {
-    //   this.cienInfoList = data
+
+    // console.log(this.cienInfoList)
+
+    // rss
+    // this.getRss().then((res) => {
+    //   this.cienInfoList = res
     // })
   }
 
