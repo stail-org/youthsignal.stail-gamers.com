@@ -14,57 +14,12 @@ export interface InformationData {
 export default class information extends VuexModule {
   list: InformationData[] = [
     {
-      id: 13,
-      title: 'C100書き下ろし短編冒頭部分先行公開！',
-      createdAt: '2022-08-06',
-      author: 'STail',
-      route: 'info-2022-08-06',
-      url: 'https://ci-en.net/creator/2349/article/685289',
-      type: 'link',
-    },
-    {
       id: 12,
       title: 'C100のお品書きを公開しました！',
       createdAt: '2022-08-06',
       author: 'STail',
       route: 'info-2022-08-06',
       type: 'modal',
-    },
-    {
-      id: 11,
-      title: 'YouthSignal-yssp-Vol20配信開始！',
-      createdAt: '2022-7-28',
-      author: 'STail',
-      route: 'info-2022-7-28',
-      url: 'https://ci-en.net/creator/2349/article/680086',
-      type: 'link',
-    },
-    {
-      id: 10,
-      title: 'YouthSignal-yssp-Vol19配信開始！',
-      createdAt: '2022-6-28',
-      author: 'STail',
-      route: 'info-2022-6-28',
-      url: 'https://ci-en.net/creator/2349/article/661112',
-      type: 'link',
-    },
-    {
-      id: 9,
-      title: 'C100の頒布物の情報を公開しました！',
-      createdAt: '2022-6-18',
-      author: 'STail',
-      route: 'info-2022-6-18',
-      url: 'https://ci-en.net/creator/2349/article/657293',
-      type: 'link',
-    },
-    {
-      id: 8,
-      title: 'Unity進捗記事第4回を公開しました！',
-      createdAt: '2022-6-11',
-      author: 'STail',
-      route: 'info-2022-6-11',
-      url: 'https://ci-en.net/creator/2349/article/630727',
-      type: 'link',
     },
     {
       id: 7,
@@ -74,15 +29,6 @@ export default class information extends VuexModule {
       route: 'info-2022-6-10',
       url:
         'https://twitter.com/STail_Official/status/1535251435960811521?s=20&t=uUdey2shl_AfwNFf91PKkQ',
-      type: 'link',
-    },
-    {
-      id: 6,
-      title: 'Unity化進捗記事第3回を公開しました',
-      createdAt: '2022-5-24',
-      author: 'STail',
-      route: 'info-2022-5-24',
-      url: 'https://ci-en.net/creator/2349/article/622130',
       type: 'link',
     },
     {

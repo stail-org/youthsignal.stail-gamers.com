@@ -14,7 +14,7 @@
             url="https://www.dlsite.com/home/circle/profile/=/maker_id/RG52910.html"
           />
         </section-fixed-right-top>
-        <section-overview />
+        <section-overview :cien-info="cienInfoList" />
         <section-introduction />
         <section-story />
         <section-character />
@@ -29,7 +29,9 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 
-import SectionOverview from '~/components/index/sections/Overview.vue'
+import SectionOverview, {
+  CienInfo,
+} from '~/components/index/sections/Overview.vue'
 import SectionIntroduction from '~/components/index/sections/Introduction.vue'
 import SectionStory from '~/components/index/sections/Story.vue'
 import SectionCharacter from '~/components/index/sections/Character.vue'
@@ -42,6 +44,9 @@ import PartModalContainer from '~/components/index/parts/ModalContainer.vue'
 import PartLinkBox from '~/components/index/parts/LinkBox.vue'
 
 import { viewStore } from '~/store'
+
+const Parser = require('rss-parser')
+const parser = new Parser()
 
 @Component({
   components: {
@@ -58,6 +63,21 @@ import { viewStore } from '~/store'
   },
 })
 export default class Index extends Vue {
+  cienInfoList: {
+    id: number
+    title: string
+    url: string
+    createdAt: Date
+  }[] = []
+
+  data() {
+    return {
+      cienInfoList: [
+        { id: 1, title: 'hello', url: 'hhh', createdAt: new Date() },
+      ] as CienInfo[],
+    }
+  }
+
   mounted() {
     if (!viewStore.notInitializedWindowSize) return
 
@@ -65,6 +85,35 @@ export default class Index extends Vue {
     window.addEventListener('resize', () => {
       viewStore.setWindowSize({ width: innerWidth, height: innerHeight })
     })
+
+    // console.log(this.cienInfoList)
+
+    // rss
+    // this.getRss().then((res) => {
+    //   this.cienInfoList = res
+    // })
+  }
+
+  async getRss() {
+    // rss
+    const feed = await parser.parseURL(
+      'https://ci-en.net/creator/2349/article/xml/rss'
+    )
+    const infoList: {
+      id: number
+      title: string
+      url: string
+      createdAt: Date
+    }[] = []
+    feed.items.forEach((item, i) => {
+      infoList.push({
+        id: i,
+        title: item.title,
+        url: item.link,
+        createdAt: new Date(item['dc:date']),
+      })
+    })
+    return infoList
   }
 
   beforeDestroy() {
