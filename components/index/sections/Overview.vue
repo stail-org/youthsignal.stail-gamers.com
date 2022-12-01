@@ -9,14 +9,17 @@
             alt="YouthSignal Informations"
           />
         </h2>
-        <p>aaaa{{ cienInfoList }}</p>
         <div class="OverviewArea__Info__List text-left">
           <div
             v-for="info in cienInfoList"
             :key="info.id"
             class="OverviewArea__Info__List__Item Info"
           >
-            <p class="Info__Text">{{ info.createdAt }}</p>
+            <p class="Info__Text">
+              {{ new Date(info.createdAt).getFullYear() }}-{{
+                new Date(info.createdAt).getMonth() + 1
+              }}-{{ new Date(info.createdAt).getDate() }}
+            </p>
             <p class="Info__Text ml-3">
               <!-- モーダルウィンドウでインフォ表示 -->
               <!-- モーダルウィンドウでインフォ表示 -->
@@ -87,9 +90,6 @@ import { Component, Prop, Vue } from 'nuxt-property-decorator'
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
 import { informationStore, modalStore, viewStore } from '~/store'
 
-const Parser = require('rss-parser')
-const parser = new Parser()
-
 export interface CienInfo {
   id: number
   title: string
@@ -113,32 +113,7 @@ export default class OverviewArea extends Vue {
   }
 
   get informationList() {
-    this.cienInfoListPromise().then((data) => {
-      console.log(data)
-      this.infos = data
-    })
     return informationStore.list
-  }
-
-  async cienInfoListPromise() {
-    const feed = await parser.parseURL(
-      'https://ci-en.net/creator/2349/article/xml/rss'
-    )
-    const infoList: {
-      id: number
-      title: string
-      url: string
-      createdAt: Date
-    }[] = []
-    feed.items.forEach((item, i) => {
-      infoList.push({
-        id: i,
-        title: item.title,
-        url: item.link,
-        createdAt: new Date(item['dc:date']),
-      })
-    })
-    return infoList
   }
 
   get getSlideNumber() {

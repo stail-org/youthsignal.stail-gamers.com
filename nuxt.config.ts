@@ -73,6 +73,7 @@ const config: Configuration = {
     '@nuxtjs/style-resources',
     'nuxt-fontawesome',
     'bootstrap-vue/nuxt',
+    '@nuxtjs/axios',
     // Google Analytics
     [
       '@nuxtjs/google-analytics',
