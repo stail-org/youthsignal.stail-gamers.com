@@ -29,6 +29,7 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 
+import axios from 'axios'
 import SectionOverview, {
   CienInfo,
 } from '~/components/index/sections/Overview.vue'
@@ -44,9 +45,6 @@ import PartModalContainer from '~/components/index/parts/ModalContainer.vue'
 import PartLinkBox from '~/components/index/parts/LinkBox.vue'
 
 import { viewStore } from '~/store'
-
-const Parser = require('rss-parser')
-const parser = new Parser()
 
 @Component({
   components: {
@@ -78,7 +76,7 @@ export default class Index extends Vue {
     }
   }
 
-  mounted() {
+  async mounted() {
     if (!viewStore.notInitializedWindowSize) return
 
     viewStore.setWindowSize({ width: innerWidth, height: innerHeight })
@@ -86,34 +84,18 @@ export default class Index extends Vue {
       viewStore.setWindowSize({ width: innerWidth, height: innerHeight })
     })
 
-    // console.log(this.cienInfoList)
-
     // rss
-    // this.getRss().then((res) => {
-    //   this.cienInfoList = res
-    // })
+    await this.getRss().then((res) => {
+      this.cienInfoList = res
+    })
   }
 
   async getRss() {
     // rss
-    const feed = await parser.parseURL(
-      'https://ci-en.net/creator/2349/article/xml/rss'
+    const data = await axios.get(
+      'http://localhost:9000/.netlify/functions/hello'
     )
-    const infoList: {
-      id: number
-      title: string
-      url: string
-      createdAt: Date
-    }[] = []
-    feed.items.forEach((item, i) => {
-      infoList.push({
-        id: i,
-        title: item.title,
-        url: item.link,
-        createdAt: new Date(item['dc:date']),
-      })
-    })
-    return infoList
+    return data.data
   }
 
   beforeDestroy() {
