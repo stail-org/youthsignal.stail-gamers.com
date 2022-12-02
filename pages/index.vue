@@ -105,6 +105,7 @@ export default class Index extends Vue {
         createdAt: new Date(item['dc:date']),
       })
     })
+    console.log(infoList)
     return { cienInfoList: infoList }
   }
 
