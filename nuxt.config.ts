@@ -1,6 +1,7 @@
 import { Configuration } from '@nuxt/types'
 
 const config: Configuration = {
+  target: 'static',
   mode: 'universal',
   head: {
     title: 'YouthSignal - 「本当になりたい自分」を取り戻す青春ADV',
