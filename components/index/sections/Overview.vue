@@ -97,9 +97,6 @@ export default class OverviewArea extends Vue {
 </script>
 
 <style scoped lang="scss">
-// スクロールバーが約 16 px
-$grid-breakpoint: ($--md - 16px) / 2;
-
 .OverviewArea {
   padding-top: 65%;
   background: url('~assets/images/youthsignal-keyvisual.jpg') no-repeat;
