@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  nuxtjs:
+    build: .
+    volumes:
+      - .:/workspace:cached
+      # node_modulesを名前付きボリュームに隠す
+      - node_module:/workspace/src/node_modules
+    working_dir: "/workspace"
+    ports:
+      - "3000:3000"
+    tty: true
+    environment:
+      - HOST=0.0.0.0
+      - port=3000
+      # ホットリロード有効化
+      - CHOKIDAR_USEPOLLING=true
+
+# node_modulesを名前付きボリュームに隠す
+volumes:
+  node_module:

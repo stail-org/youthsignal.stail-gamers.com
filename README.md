@@ -2,6 +2,16 @@
 
 YouthSignal ホームページ
 
+## 環境構築手順
+
+- [VSCode](https://code.visualstudio.com/) を使用
+- VSCode の拡張機能 `Dev Containers` ( ms-vscode-remote.remote-containers ) をインストール
+- VSCode のコマンドパレットから `Dev Containers: Reopen in Container` を実行
+
+※ VSCode の有無に関わらず Docker コマンドで動作させることも可能
+
+> `docker-compose`で実行する。`docker compose`では動作しない。(M1 Mac)
+
 ## ホスティングについて
 
 Netlify を使用

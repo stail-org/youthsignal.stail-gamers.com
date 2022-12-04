@@ -1,0 +1,20 @@
+{
+  "name": "NuxtJS",
+  "dockerComposeFile": [
+    "../docker-compose.yml"
+  ],
+  "service": "nuxtjs",
+  "workspaceFolder": "/workspace",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+		"EditorConfig.EditorConfig",
+		"dbaeumer.vscode-eslint",
+		"esbenp.prettier-vscode",
+		"stylelint.vscode-stylelint",
+		"octref.vetur",
+		"mhutchie.git-graph"
+	]
+    }
+  }
+}
