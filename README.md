@@ -10,6 +10,8 @@ YouthSignal ホームページ
 
 ※ VSCode の有無に関わらず Docker コマンドで動作させることも可能
 
+> `docker-compose`で実行する。`docker compose`では動作しない。(M1 Mac)
+
 ## ホスティングについて
 
 Netlify を使用
