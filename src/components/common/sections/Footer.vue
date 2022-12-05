@@ -3,7 +3,7 @@
     <div class="Footer__Warning">
       このホームページに掲載されている一切の文書・図版・写真等を手段や形態を問わず無断で複製、転載することを禁じます。
     </div>
-    <div class="Footer__Copyright">
+    <div>
       © 2019 STail
     </div>
   </footer>
@@ -23,10 +23,6 @@ export default class Footer extends Vue {}
   &__Warning {
     margin: 0.1px 4%;
     font-size: xx-small;
-  }
-
-  &__Copyright {
-    font-size: small;
   }
 }
 </style>
