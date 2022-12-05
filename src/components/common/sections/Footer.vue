@@ -1,10 +1,10 @@
 <template>
   <footer class="Footer w-100 py-3 text-center">
     <div class="Warning">
-      このホームページに掲載されている一切の文書・図版・写真等を無断で手段や形態を問わず複製、転載することを禁じます。
+      このホームページに掲載されている一切の文書・図版・写真等を手段や形態を問わず無断で複製、転載することを禁じます。
     </div>
     <div>
-      © 2019 Stail
+      © 2019 STail
     </div>
   </footer>
 </template>
