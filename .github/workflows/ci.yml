@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  push:
+    branches:
+      - dev
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: compose-run
+        shell: bash
+        run: |
+          chmod -R 777 youthsignal.stail-gamers.com/
+          cd youthsignal.stail-gamers.com/
+          docker-compose up -d
+          docker-compose exec -T web bash -c "cd src/ && yarn && yarn generate"
+          cd src 
+          ls
