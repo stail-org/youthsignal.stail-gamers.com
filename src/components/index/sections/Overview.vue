@@ -11,6 +11,30 @@
         </h2>
         <div class="OverviewArea__Info__List text-left">
           <div
+            v-for="info in cienInfoList"
+            :key="info.id"
+            class="OverviewArea__Info__List__Item Info"
+          >
+            <p class="Info__Text">
+              {{ new Date(info.createdAt).getFullYear() }}-{{
+                new Date(info.createdAt).getMonth() + 1
+              }}-{{ new Date(info.createdAt).getDate() }}
+            </p>
+            <p class="Info__Text ml-3">
+              <!-- モーダルウィンドウでインフォ表示 -->
+              <!-- モーダルウィンドウでインフォ表示 -->
+              <a
+                class="red always-underline"
+                :href="info.url"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {{ info.title }}
+                <fa class="fa" :icon="faExternalLinkAlt" />
+              </a>
+            </p>
+          </div>
+          <div
             v-for="info in informationList"
             :key="info.id"
             class="OverviewArea__Info__List__Item Info"
@@ -62,12 +86,32 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator'
+import { Component, Prop, Vue } from 'nuxt-property-decorator'
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
 import { informationStore, modalStore, viewStore } from '~/store'
 
+export interface CienInfo {
+  id: number
+  title: string
+  url: string
+  createdAt: Date
+}
+
 @Component
 export default class OverviewArea extends Vue {
+  public infos: {
+    id: number
+    title: string
+    url: string
+    createdAt: Date
+  }[] = []
+
+  @Prop({ type: Array, required: true }) readonly cienInfo!: CienInfo[]
+
+  get cienInfoList(): CienInfo[] {
+    return this.cienInfo
+  }
+
   get informationList() {
     return informationStore.list
   }
@@ -97,6 +141,9 @@ export default class OverviewArea extends Vue {
 </script>
 
 <style scoped lang="scss">
+// スクロールバーが約 16 px
+$grid-breakpoint: ($--md - 16px) / 2;
+
 .OverviewArea {
   padding-top: 65%;
   background: url('~assets/images/youthsignal-keyvisual.jpg') no-repeat;
