@@ -1,0 +1,17 @@
+name: docker-compose
+
+on:
+  push:
+    branches:
+      - chore/actions
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: compose-run
+        shell: bash
+        run: |
+          docker-compose up -d
+          docker-compose exec -T youthsignalstail-gamerscom_nuxtjs_1 bash -c "ls"
