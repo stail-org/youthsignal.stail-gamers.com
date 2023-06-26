@@ -26,7 +26,7 @@ export default class Staff extends VuexModule {
       id: 3,
       name: 'TigRig',
       role: 'システム',
-      twitterId: 'TigRig_TRNS',
+      twitterId: 'tigrig1129',
     },
     {
       id: 4,
@@ -50,7 +50,7 @@ export default class Staff extends VuexModule {
       id: 7,
       name: '望月しゅう',
       role: '背景線画',
-      twitterId: 'knock1025',
+      twitterId: 'MoonWriteDesign',
     },
     {
       id: 8,
@@ -62,19 +62,13 @@ export default class Staff extends VuexModule {
       id: 9,
       name: 'ki-bo',
       role: 'サウンド',
-      twitterId: 'k_i_1_b_o',
+      twitterId: 'k_i_1_b_o_k',
     },
     {
       id: 10,
       name: 'うるち',
       role: 'GUI',
       twitterId: 'uruchi11_1',
-    },
-    {
-      id: 11,
-      name: 'yushin',
-      role: 'サウンド',
-      twitterId: '',
     },
   ]
 }
