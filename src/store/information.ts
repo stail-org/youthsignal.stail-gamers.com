@@ -14,6 +14,15 @@ export interface InformationData {
 export default class information extends VuexModule {
   list: InformationData[] = [
     {
+      id: 14,
+      title: '夏コミケ当選しました！',
+      createdAt: '2023-07-05',
+      author: 'STail',
+      route: 'info-2023-07-05',
+      url: 'https://twitter.com/STail_Official/status/1667107868062138368?s=20',
+      type: 'link',
+    },
+    {
       id: 13,
       title: 'C100書き下ろし短編冒頭部分先行公開！',
       createdAt: '2022-08-06',
