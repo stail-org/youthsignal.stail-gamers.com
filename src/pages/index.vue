@@ -13,6 +13,11 @@
             title="DLsite"
             url="https://www.dlsite.com/home/circle/profile/=/maker_id/RG52910.html"
           />
+          <part-link-box
+            class="mt-2"
+            title="公式ツイッター"
+            url="https://twitter.com/STail_Official"
+          />
         </section-fixed-right-top>
         <section-overview />
         <section-introduction />
