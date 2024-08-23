@@ -5,8 +5,8 @@
       <div class="Top__Article__Contents pb-5">
         <section-fixed-right-top>
           <part-link-box
-            title="Cien で毎月リリース中！"
-            url="https://ci-en.net/creator/2349/article/412646"
+            title="Steam"
+            url="https://store.steampowered.com/app/3004120/YouthSignal/"
           />
           <part-link-box
             class="mt-2"
